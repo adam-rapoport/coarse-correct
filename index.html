@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coarse Correct — Find Your Espresso Grind Setting</title>
+  <meta name="description" content="Get a recommended grind setting for your espresso based on your beans, roast level, and grinder.">
+  <meta property="og:title" content="Coarse Correct — Find Your Espresso Grind Setting">
+  <meta property="og:description" content="Stop guessing your grind size. Enter your beans and grinder, get a starting point.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Coarse Correct</h1>
+      <p class="subtitle">Find your starting grind setting for espresso</p>
+    </header>
+
+    <form id="grind-form">
+      <div class="form-group">
+        <label for="grinder">Grinder</label>
+        <select id="grinder" required>
+          <option value="" disabled selected>Select your grinder…</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Roast Level</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="roast" value="light" required>
+            <span>Light</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="roast" value="medium-light">
+            <span>Med-Light</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="roast" value="medium" checked>
+            <span>Medium</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="roast" value="medium-dark">
+            <span>Med-Dark</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="roast" value="dark">
+            <span>Dark</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="roast-date">Roast Date</label>
+        <input type="date" id="roast-date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dose">Dose (grams)</label>
+        <div class="dose-input-wrapper">
+          <input type="number" id="dose" value="18" min="10" max="25" step="0.5" required>
+          <span class="dose-unit">g</span>
+        </div>
+      </div>
+
+      <button type="submit" id="submit-btn">Get My Grind Setting</button>
+    </form>
+
+    <div id="result" class="result hidden">
+      <h2>Your Recommendation</h2>
+      <div class="result-card">
+        <p class="result-grinder" id="result-grinder"></p>
+        <p class="result-setting" id="result-setting"></p>
+        <p class="result-tagline">Start here and adjust to taste</p>
+      </div>
+
+      <div class="result-details">
+        <h3>Why this setting</h3>
+        <ul id="result-explanation"></ul>
+      </div>
+
+      <div class="result-tips">
+        <h3>Next steps</h3>
+        <ul>
+          <li>Pull a shot and taste it</li>
+          <li><strong>Too fast or sour?</strong> → Go 1 step finer</li>
+          <li><strong>Too slow or bitter?</strong> → Go 1 step coarser</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>This is a starting point, not gospel. Every setup is a little different — trust your taste buds.</p>
+    </footer>
+  </div>
+
+  <script src="js/grinders.js"></script>
+  <script src="js/algorithm.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
