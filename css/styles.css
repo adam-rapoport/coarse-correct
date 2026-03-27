@@ -134,6 +134,224 @@ select:focus {
   border-color: #8B4513;
 }
 
+/* Bean mode toggle */
+.bean-mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1.5px solid #D4C8BE;
+  border-radius: 20px;
+  color: #7A6252;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mode-btn:hover {
+  border-color: #8B4513;
+}
+
+.mode-btn.active {
+  background: #3C2415;
+  color: #fff;
+  border-color: #3C2415;
+}
+
+/* Bean search */
+.bean-search-section {
+  margin-top: 0.25rem;
+}
+
+.bean-search-section.hidden {
+  display: none;
+}
+
+.bean-search-wrapper {
+  position: relative;
+}
+
+#bean-search {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1.5px solid #D4C8BE;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #3C2415;
+}
+
+#bean-search:focus {
+  outline: none;
+  border-color: #8B4513;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+}
+
+/* Bean search results dropdown */
+.bean-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1.5px solid #D4C8BE;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(60, 36, 21, 0.12);
+}
+
+.bean-results.hidden {
+  display: none;
+}
+
+.bean-result-item {
+  padding: 0.625rem 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #F0EBE6;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bean-result-item:last-child {
+  border-bottom: none;
+}
+
+.bean-result-item:hover,
+.bean-result-item.highlighted {
+  background: #F5F0EB;
+}
+
+.bean-result-roaster {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #7A6252;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bean-result-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3C2415;
+}
+
+.bean-result-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.bean-result-level {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+  background: #F5F0EB;
+  color: #8B4513;
+  text-transform: capitalize;
+}
+
+.bean-result-notes {
+  font-size: 0.75rem;
+  color: #9A8A7C;
+  font-style: italic;
+}
+
+/* Selected bean chip */
+.bean-selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #F5F0EB;
+  border-radius: 8px;
+  border: 1.5px solid #D4C8BE;
+}
+
+.bean-selected.hidden {
+  display: none;
+}
+
+.bean-selected-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.bean-selected-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3C2415;
+}
+
+.bean-selected-roast {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+  background: #3C2415;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.bean-clear {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: #D4C8BE;
+  color: #3C2415;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.bean-clear:hover {
+  background: #8B4513;
+  color: #fff;
+}
+
+/* Auto-filled label under roast radios */
+.roast-auto-label {
+  font-size: 0.75rem;
+  color: #8B4513;
+  margin-top: 0.375rem;
+  font-style: italic;
+}
+
+.roast-auto-label.hidden {
+  display: none;
+}
+
+/* Dimmed roast group when bean is selected */
+#roast-radio-group.dimmed {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 /* Date & number inputs */
 input[type="date"],
 input[type="number"] {
