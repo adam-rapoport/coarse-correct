@@ -382,6 +382,10 @@ input[type="number"]:focus {
   padding-right: 2rem;
 }
 
+.dose-input-wrapper select {
+  width: 100%;
+}
+
 .dose-unit {
   position: absolute;
   right: 0.75rem;
@@ -458,6 +462,19 @@ input[type="number"]:focus {
   padding: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 12px rgba(60, 36, 21, 0.2);
+}
+
+.result-method {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
 }
 
 .result-grinder {
