@@ -18,7 +18,12 @@ const BREW_METHOD_CONFIG = {
     doseDefault: 18,
     doseAdjBase: 18,
     doseAdjFactor: 0.01,
-    freshnessMultiplier: 1.0
+    freshnessMultiplier: 1.0,
+    stepMultiplier: 1,
+    tempDefault: 200,
+    tempMin: 190,
+    tempMax: 210,
+    tempAdjFactor: 0.008
   },
   v60: {
     label: "V60 Pour-Over",
@@ -33,7 +38,12 @@ const BREW_METHOD_CONFIG = {
     doseDefault: 16,
     doseAdjBase: 16,
     doseAdjFactor: -0.02,
-    freshnessMultiplier: 0.6
+    freshnessMultiplier: 0.6,
+    stepMultiplier: 2,
+    tempDefault: 205,
+    tempMin: 195,
+    tempMax: 212,
+    tempAdjFactor: 0.006
   },
   chemex: {
     label: "Chemex Pour-Over",
@@ -48,7 +58,12 @@ const BREW_METHOD_CONFIG = {
     doseDefault: 15,
     doseAdjBase: 15,
     doseAdjFactor: -0.02,
-    freshnessMultiplier: 0.5
+    freshnessMultiplier: 0.5,
+    stepMultiplier: 2,
+    tempDefault: 205,
+    tempMin: 195,
+    tempMax: 212,
+    tempAdjFactor: 0.006
   }
 };
 
@@ -106,7 +121,7 @@ function formatSetting(value, displayFormat, grinder, brewMethod) {
   return Math.round(value).toString();
 }
 
-function getRecommendation(grinderId, brewMethod, roastLevel, roastDateStr, doseOrRatio) {
+function getRecommendation(grinderId, brewMethod, roastLevel, roastDateStr, doseOrRatio, waterTemp) {
   const grinder = GRINDERS.find(g => g.id === grinderId);
   if (!grinder) return null;
 
@@ -140,6 +155,14 @@ function getRecommendation(grinderId, brewMethod, roastLevel, roastDateStr, dose
   const doseAdj = (doseOrRatio - config.doseAdjBase) * config.doseAdjFactor;
   normalized += doseAdj;
 
+  // Step 4.5: Water temperature adjustment
+  var tempAdj = 0;
+  if (waterTemp != null) {
+    var tempDeviation = waterTemp - config.tempDefault;
+    tempAdj = tempDeviation * config.tempAdjFactor;
+    normalized += tempAdj;
+  }
+
   // Step 5: Clamp to valid range
   normalized = clamp(normalized, 0, 1);
 
@@ -153,7 +176,7 @@ function getRecommendation(grinderId, brewMethod, roastLevel, roastDateStr, dose
   const display = formatSetting(clampedSetting, grinder.displayFormat, grinder, brewMethod);
 
   // Build explanation
-  const explanations = buildExplanations(brewMethod, config, roastLevel, roastAdj, daysSinceRoast, freshnessAdj, doseOrRatio, doseAdj, grinder);
+  const explanations = buildExplanations(brewMethod, config, roastLevel, roastAdj, daysSinceRoast, freshnessAdj, doseOrRatio, doseAdj, grinder, waterTemp, tempAdj);
 
   return {
     setting: clampedSetting,
@@ -167,7 +190,7 @@ function getRecommendation(grinderId, brewMethod, roastLevel, roastDateStr, dose
   };
 }
 
-function buildExplanations(brewMethod, config, roastLevel, roastAdj, days, freshnessAdj, doseOrRatio, doseAdj, grinder) {
+function buildExplanations(brewMethod, config, roastLevel, roastAdj, days, freshnessAdj, doseOrRatio, doseAdj, grinder, waterTemp, tempAdj) {
   const items = [];
   const roastLabels = {
     "light": "Light roast",
@@ -218,5 +241,66 @@ function buildExplanations(brewMethod, config, roastLevel, roastAdj, days, fresh
     }
   }
 
+  // Water temperature explanation
+  if (waterTemp != null) {
+    var tempDiff = waterTemp - config.tempDefault;
+    if (Math.abs(tempDiff) < 2) {
+      items.push(waterTemp + "\u00B0F water \u2192 standard temp, no adjustment");
+    } else if (tempDiff > 0) {
+      items.push(waterTemp + "\u00B0F water \u2192 hotter than standard, grinding slightly coarser");
+    } else {
+      items.push(waterTemp + "\u00B0F water \u2192 cooler than standard, grinding slightly finer");
+    }
+  }
+
   return items;
+}
+
+function getAdjustedSetting(currentSetting, direction, grinder, brewMethod) {
+  var config = BREW_METHOD_CONFIG[brewMethod];
+  if (!config) return null;
+
+  var methodRange = grinder.methods[brewMethod];
+  if (!methodRange) return null;
+
+  var stepAmount = grinder.stepSize * config.stepMultiplier;
+
+  // Ensure the step is large enough to produce a visible change in the display
+  if (grinder.displayFormat === "whole" && stepAmount < 1) {
+    stepAmount = 1;
+  }
+
+  var newSetting;
+  if (direction === "finer") {
+    newSetting = currentSetting - stepAmount;
+  } else {
+    newSetting = currentSetting + stepAmount;
+  }
+
+  newSetting = roundToStep(newSetting, grinder.stepSize);
+  var atLimit = false;
+
+  if (newSetting <= methodRange.min) {
+    newSetting = methodRange.min;
+    atLimit = true;
+  } else if (newSetting >= methodRange.max) {
+    newSetting = methodRange.max;
+    atLimit = true;
+  }
+
+  var display = formatSetting(newSetting, grinder.displayFormat, grinder, brewMethod);
+
+  var explanation;
+  if (direction === "finer") {
+    explanation = "Grinding finer to increase extraction and reduce sourness";
+  } else {
+    explanation = "Grinding coarser to reduce extraction and cut bitterness";
+  }
+
+  return {
+    setting: newSetting,
+    display: display,
+    atLimit: atLimit,
+    explanation: explanation
+  };
 }

@@ -16,7 +16,10 @@
 <body>
   <div class="container">
     <header>
-      <h1>Coarse Correct</h1>
+      <div class="header-row">
+        <h1>Coarse Correct</h1>
+        <a href="journal.html" class="nav-link">Journal</a>
+      </div>
       <p class="subtitle">Find your starting grind setting</p>
     </header>
 
@@ -108,6 +111,15 @@
         </div>
       </div>
 
+      <div class="form-group" id="temp-group">
+        <label for="water-temp">Water Temperature <span class="optional-label">(optional)</span></label>
+        <div class="temp-input-wrapper">
+          <input type="number" id="water-temp" placeholder="200" min="190" max="212" step="1">
+          <span class="temp-unit">&deg;F</span>
+        </div>
+        <p class="temp-hint" id="temp-hint">Default: 200&deg;F for Espresso</p>
+      </div>
+
       <button type="submit" id="submit-btn">Get My Grind Setting</button>
     </form>
 
@@ -117,7 +129,7 @@
         <p class="result-method" id="result-method"></p>
         <p class="result-grinder" id="result-grinder"></p>
         <p class="result-setting" id="result-setting"></p>
-        <p class="result-tagline">Start here and adjust to taste</p>
+        <p class="result-tagline" id="result-tagline">Start here and adjust to taste</p>
       </div>
 
       <div class="result-details">
@@ -125,13 +137,36 @@
         <ul id="result-explanation"></ul>
       </div>
 
-      <div class="result-tips">
-        <h3>Next steps</h3>
-        <ul id="result-tips-list">
-          <li>Pull a shot and taste it</li>
-          <li><strong>Too fast or sour?</strong> → Go 1 step finer</li>
-          <li><strong>Too slow or bitter?</strong> → Go 1 step coarser</li>
-        </ul>
+      <div id="quick-adjust" class="quick-adjust hidden">
+        <p class="quick-adjust-prompt">Brew it, then tell us how it tasted:</p>
+        <div class="quick-adjust-buttons">
+          <button type="button" class="adjust-btn adjust-sour" id="btn-sour">Too Sour</button>
+          <button type="button" class="adjust-btn adjust-right" id="btn-right">Just Right</button>
+          <button type="button" class="adjust-btn adjust-bitter" id="btn-bitter">Too Bitter</button>
+        </div>
+        <p id="adjust-status" class="adjust-status hidden"></p>
+        <p id="adjust-limit" class="adjust-limit hidden"></p>
+        <a href="#" id="log-without-adjust" class="log-link">Log this brew without adjusting</a>
+      </div>
+
+      <div id="brew-log-form" class="brew-log-form hidden">
+        <h3>Log This Brew</h3>
+        <p id="log-summary" class="log-summary"></p>
+        <div class="log-field">
+          <label for="taste-notes">Taste Notes <span class="optional-label">(optional)</span></label>
+          <input type="text" id="taste-notes" placeholder="Chocolate, balanced, bright...">
+        </div>
+        <div class="log-field">
+          <label>Rating</label>
+          <div class="star-rating" id="star-rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        </div>
+        <button type="button" id="save-brew-btn" class="save-brew-btn">Save to Journal</button>
       </div>
     </div>
 
@@ -143,6 +178,7 @@
   <script src="js/grinders.js"></script>
   <script src="js/beans.js"></script>
   <script src="js/algorithm.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

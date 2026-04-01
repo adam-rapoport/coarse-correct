@@ -4,12 +4,16 @@
 
 var selectedBean = null;
 var highlightedIndex = -1;
+var currentAdjustment = null;
+var lastResult = null;
+var selectedRating = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   populateGrinderDropdown();
   setDefaultRoastDate();
   initBeanSearch();
   initBrewMethodToggle();
+  initBrewLogForm();
 
   document.getElementById("grind-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -68,6 +72,10 @@ function updateDoseInput(method) {
   var label = document.getElementById("dose-label");
   var wrapper = document.getElementById("dose-wrapper");
   var config = BREW_METHOD_CONFIG[method];
+
+  // Update temp hint
+  var tempHint = document.getElementById("temp-hint");
+  tempHint.textContent = "Default: " + config.tempDefault + "\u00B0F for " + config.label;
 
   // Clear the wrapper
   wrapper.innerHTML = "";
@@ -341,7 +349,10 @@ function handleSubmit() {
     }
   }
 
-  const result = getRecommendation(grinderId, brewMethod, roastLevel, roastDate, doseOrRatio);
+  var waterTempEl = document.getElementById("water-temp");
+  var waterTemp = waterTempEl.value ? parseFloat(waterTempEl.value) : null;
+
+  const result = getRecommendation(grinderId, brewMethod, roastLevel, roastDate, doseOrRatio, waterTemp);
 
   if (!result) {
     showError("Something went wrong. Please try again.");
@@ -359,33 +370,17 @@ function handleSubmit() {
 
 // ── Result rendering ──────────────────────────────────────────────────
 
-var BREW_METHOD_TIPS = {
-  espresso: [
-    "Pull a shot and taste it",
-    "<strong>Too fast or sour?</strong> \u2192 Go 1 step finer",
-    "<strong>Too slow or bitter?</strong> \u2192 Go 1 step coarser"
-  ],
-  v60: [
-    "Target a total brew time of 2:30\u20133:30",
-    "Bloom with 2\u00D7 your coffee weight in water for 30\u201345 seconds",
-    "<strong>Draining too fast or tasting sour?</strong> \u2192 Go finer",
-    "<strong>Draining too slow or tasting bitter?</strong> \u2192 Go coarser"
-  ],
-  chemex: [
-    "Target a total brew time of 3:30\u20134:30",
-    "Bloom with 2\u00D7 your coffee weight in water for 30\u201345 seconds",
-    "The thick Chemex filter is forgiving \u2014 don\u2019t over-correct by going too fine",
-    "<strong>Draining too fast?</strong> \u2192 Go finer. <strong>Too slow?</strong> \u2192 Go coarser"
-  ]
-};
-
 function renderResult(result) {
+  lastResult = result;
+
+  // Hide any previous log form
+  document.getElementById("brew-log-form").classList.add("hidden");
+
   const resultSection = document.getElementById("result");
   const methodEl = document.getElementById("result-method");
   const grinderEl = document.getElementById("result-grinder");
   const settingEl = document.getElementById("result-setting");
   const explanationEl = document.getElementById("result-explanation");
-  const tipsList = document.getElementById("result-tips-list");
 
   // Method badge
   methodEl.textContent = result.methodLabel;
@@ -417,20 +412,207 @@ function renderResult(result) {
     resultSection.querySelector(".result-card").appendChild(note);
   }
 
-  // Method-specific tips
-  tipsList.innerHTML = "";
-  var tips = BREW_METHOD_TIPS[result.brewMethod] || BREW_METHOD_TIPS.espresso;
-  tips.forEach(function (tipHtml) {
-    var li = document.createElement("li");
-    li.innerHTML = tipHtml;
-    tipsList.appendChild(li);
-  });
-
   // Reveal the result section
   resultSection.classList.remove("hidden");
 
+  // Show quick-adjust buttons
+  showQuickAdjust(result);
+
   // Smooth scroll to result
   resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// ── Quick-adjust dial-in loop ────────────────────────────────────────
+
+function showQuickAdjust(result) {
+  currentAdjustment = {
+    originalSetting: result.setting,
+    originalDisplay: result.display,
+    currentSetting: result.setting,
+    currentDisplay: result.display,
+    adjustmentCount: 0,
+    grinder: result.grinder,
+    brewMethod: result.brewMethod
+  };
+
+  var section = document.getElementById("quick-adjust");
+  section.classList.remove("hidden");
+  document.getElementById("adjust-status").classList.add("hidden");
+  document.getElementById("adjust-limit").classList.add("hidden");
+
+  document.getElementById("btn-sour").onclick = function () {
+    handleQuickAdjust("finer");
+  };
+  document.getElementById("btn-bitter").onclick = function () {
+    handleQuickAdjust("coarser");
+  };
+  document.getElementById("btn-right").onclick = function () {
+    handleJustRight();
+  };
+}
+
+function handleQuickAdjust(direction) {
+  if (!currentAdjustment) return;
+
+  var adjusted = getAdjustedSetting(
+    currentAdjustment.currentSetting,
+    direction,
+    currentAdjustment.grinder,
+    currentAdjustment.brewMethod
+  );
+
+  if (!adjusted) return;
+
+  currentAdjustment.currentSetting = adjusted.setting;
+  currentAdjustment.currentDisplay = adjusted.display;
+  currentAdjustment.adjustmentCount++;
+
+  // Update the main result display
+  document.getElementById("result-setting").textContent = adjusted.display;
+  document.getElementById("result-tagline").textContent =
+    "Adjustment " + currentAdjustment.adjustmentCount + " — " + adjusted.explanation.toLowerCase();
+
+  // Show status
+  var status = document.getElementById("adjust-status");
+  status.textContent = "Try " + adjusted.display + " — " + adjusted.explanation.toLowerCase();
+  status.classList.remove("hidden");
+
+  // Show limit warning if needed
+  var limitEl = document.getElementById("adjust-limit");
+  if (adjusted.atLimit) {
+    var boundaryWord = direction === "finer" ? "finest" : "coarsest";
+    limitEl.textContent = "You've reached the " + boundaryWord + " setting for " +
+      BREW_METHOD_CONFIG[currentAdjustment.brewMethod].label + " on this grinder.";
+    limitEl.classList.remove("hidden");
+  } else {
+    limitEl.classList.add("hidden");
+  }
+}
+
+function handleJustRight() {
+  showBrewLogForm("just_right");
+}
+
+function showBrewLogForm(outcome) {
+  // Hide the quick-adjust buttons
+  document.getElementById("quick-adjust").classList.add("hidden");
+  document.getElementById("result-tagline").textContent = "Dialed in!";
+
+  // Build summary text
+  var summary = "";
+  if (lastResult) {
+    var methodLabel = BREW_METHOD_CONFIG[lastResult.brewMethod].label;
+    summary = methodLabel + " on " + lastResult.grinder.name;
+    if (selectedBean) {
+      summary += " with " + selectedBean.roaster + " " + selectedBean.name;
+    }
+    var finalDisplay = currentAdjustment ? currentAdjustment.currentDisplay : lastResult.display;
+    summary += " — Setting: " + finalDisplay;
+  }
+  document.getElementById("log-summary").textContent = summary;
+
+  // Reset form fields
+  document.getElementById("taste-notes").value = "";
+  selectedRating = 0;
+  updateStarDisplay();
+
+  // Show the form
+  var form = document.getElementById("brew-log-form");
+  form.classList.remove("hidden");
+  form.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // Store outcome for save
+  form.dataset.outcome = outcome || "just_right";
+}
+
+function initBrewLogForm() {
+  // Star rating clicks
+  var stars = document.querySelectorAll("#star-rating .star");
+  stars.forEach(function (star) {
+    star.addEventListener("click", function () {
+      selectedRating = parseInt(star.dataset.value);
+      updateStarDisplay();
+    });
+  });
+
+  // Save button
+  document.getElementById("save-brew-btn").addEventListener("click", function () {
+    saveBrew();
+  });
+
+  // Log without adjusting link
+  document.getElementById("log-without-adjust").addEventListener("click", function (e) {
+    e.preventDefault();
+    showBrewLogForm(null);
+  });
+}
+
+function updateStarDisplay() {
+  var stars = document.querySelectorAll("#star-rating .star");
+  stars.forEach(function (star) {
+    var val = parseInt(star.dataset.value);
+    if (val <= selectedRating) {
+      star.classList.add("filled");
+    } else {
+      star.classList.remove("filled");
+    }
+  });
+}
+
+function saveBrew() {
+  if (!lastResult) return;
+
+  var finalSetting = currentAdjustment ? currentAdjustment.currentSetting : lastResult.setting;
+  var finalDisplay = currentAdjustment ? currentAdjustment.currentDisplay : lastResult.display;
+  var adjustmentCount = currentAdjustment ? currentAdjustment.adjustmentCount : 0;
+  var outcome = document.getElementById("brew-log-form").dataset.outcome || null;
+
+  var entry = {
+    id: "brew_" + Date.now(),
+    timestamp: new Date().toISOString(),
+    grinderId: lastResult.grinder.id,
+    grinderName: lastResult.grinder.name,
+    brewMethod: lastResult.brewMethod,
+    beanId: selectedBean ? selectedBean.id : null,
+    beanRoaster: selectedBean ? selectedBean.roaster : null,
+    beanName: selectedBean ? selectedBean.name : null,
+    roastLevel: document.querySelector('input[name="roast"]:checked').value,
+    roastDate: document.getElementById("roast-date").value,
+    doseOrRatio: parseFloat(document.getElementById("dose").value),
+    waterTemp: document.getElementById("water-temp").value ? parseFloat(document.getElementById("water-temp").value) : null,
+    originalSetting: lastResult.setting,
+    originalDisplay: lastResult.display,
+    finalSetting: finalSetting,
+    finalDisplay: finalDisplay,
+    adjustmentCount: adjustmentCount,
+    outcome: outcome,
+    tasteNotes: document.getElementById("taste-notes").value.trim() || null,
+    rating: selectedRating || null
+  };
+
+  saveBrewEntry(entry);
+
+  // Hide log form, show toast
+  document.getElementById("brew-log-form").classList.add("hidden");
+  currentAdjustment = null;
+  showToast("Saved to journal!");
+}
+
+function showToast(message) {
+  var existing = document.querySelector(".toast");
+  if (existing) existing.remove();
+
+  var toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(function () {
+    toast.classList.add("toast-fade");
+  }, 2000);
+  setTimeout(function () {
+    if (toast.parentNode) toast.remove();
+  }, 2500);
 }
 
 function showError(message) {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Journal — Coarse Correct</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-row">
+        <h1>Brew Journal</h1>
+        <a href="index.html" class="nav-link">Back to Grinder</a>
+      </div>
+      <p class="subtitle">Your dial-in history</p>
+    </header>
+
+    <div class="journal-controls">
+      <div class="journal-filters">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="espresso">Espresso</button>
+        <button type="button" class="filter-btn" data-filter="v60">V60</button>
+        <button type="button" class="filter-btn" data-filter="chemex">Chemex</button>
+      </div>
+      <select id="sort-select" class="journal-sort">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+    </div>
+
+    <div id="journal-list" class="journal-list"></div>
+
+    <div id="journal-empty" class="journal-empty hidden">
+      <p>No brews logged yet.</p>
+      <a href="index.html">Go brew something!</a>
+    </div>
+
+    <button type="button" id="clear-all-btn" class="clear-all-btn hidden">Clear All Brews</button>
+
+    <div id="confirm-clear" class="confirm-clear hidden">
+      <p>Delete all brew logs? This can't be undone.</p>
+      <div class="confirm-buttons">
+        <button type="button" id="confirm-yes" class="confirm-yes">Yes, delete all</button>
+        <button type="button" id="confirm-no" class="confirm-no">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/journal.js"></script>
+</body>
+</html>
