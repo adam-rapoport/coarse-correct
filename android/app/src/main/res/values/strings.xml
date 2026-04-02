@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Coarse Correct</string>
+    <string name="title_activity_main">Coarse Correct</string>
+    <string name="package_name">com.coarsecorrect.app</string>
+    <string name="custom_url_scheme">com.coarsecorrect.app</string>
+</resources>

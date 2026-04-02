@@ -1,2 +1,12 @@
 .DS_Store
 .claude/
+
+# npm
+node_modules/
+
+# Capacitor build artifacts
+www/
+android/.gradle/
+android/app/build/
+android/build/
+*.apk

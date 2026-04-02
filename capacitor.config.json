@@ -1,0 +1,8 @@
+{
+  "appId": "com.coarsecorrect.app",
+  "appName": "Coarse Correct",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
