@@ -10,3 +10,9 @@ android/.gradle/
 android/app/build/
 android/build/
 *.apk
+*.aab
+
+# Signing keys — NEVER commit these
+*.keystore
+*.jks
+signing.properties

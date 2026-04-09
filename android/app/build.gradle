@@ -1,8 +1,26 @@
 apply plugin: 'com.android.application'
 
+def signingPropsFile = file("${System.getProperty('user.home')}/coarse-correct-signing/signing.properties")
+def signingProps = new Properties()
+if (signingPropsFile.exists()) {
+    signingProps.load(new FileInputStream(signingPropsFile))
+}
+
 android {
     namespace = "com.coarsecorrect.app"
     compileSdk = rootProject.ext.compileSdkVersion
+
+    if (signingPropsFile.exists()) {
+        signingConfigs {
+            release {
+                storeFile file(signingProps['storeFile'])
+                storePassword signingProps['storePassword']
+                keyAlias signingProps['keyAlias']
+                keyPassword signingProps['keyPassword']
+            }
+        }
+    }
+
     defaultConfig {
         applicationId "com.coarsecorrect.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -20,6 +38,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (signingPropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
