@@ -1086,6 +1086,541 @@ const BEANS = [
     name: "French Roast",
     roastLevel: "dark",
     notes: "Smoky, intense, bold"
+  },
+
+  // --- v1.0.1 additions ---
+
+  // --- Onyx Coffee Lab (Rogers, AR) ---
+  {
+    id: "onyx-southeastern",
+    roaster: "Onyx Coffee Lab",
+    name: "Southeastern Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, hazelnut, brown sugar"
+  },
+  {
+    id: "onyx-homestead",
+    roaster: "Onyx Coffee Lab",
+    name: "Homestead Blend",
+    roastLevel: "medium-dark",
+    notes: "Dark chocolate, molasses, walnut"
+  },
+
+  // --- Sey Coffee (Brooklyn, NY) ---
+  {
+    id: "sey-house-blend",
+    roaster: "Sey Coffee",
+    name: "House Blend",
+    roastLevel: "light",
+    notes: "Delicate, tea-like, floral"
+  },
+  {
+    id: "sey-ethiopia-hambela",
+    roaster: "Sey Coffee",
+    name: "Ethiopia Hambela",
+    roastLevel: "light",
+    notes: "Jasmine, peach, bergamot"
+  },
+  {
+    id: "sey-colombia-inmaculada",
+    roaster: "Sey Coffee",
+    name: "Colombia Inmaculada",
+    roastLevel: "light",
+    notes: "Red apple, honey, clean"
+  },
+
+  // --- Heart Coffee Roasters (Portland, OR) ---
+  {
+    id: "heart-ethiopia-gedeb",
+    roaster: "Heart Coffee Roasters",
+    name: "Ethiopia Gedeb",
+    roastLevel: "light",
+    notes: "Blueberry, floral, lemon"
+  },
+
+  // --- Tim Wendelboe (Oslo, Norway) ---
+  {
+    id: "wendelboe-finca-tamana",
+    roaster: "Tim Wendelboe",
+    name: "Finca Tamana",
+    roastLevel: "light",
+    notes: "Black tea, red currant, clean"
+  },
+  {
+    id: "wendelboe-kieni",
+    roaster: "Tim Wendelboe",
+    name: "Kieni AA",
+    roastLevel: "light",
+    notes: "Black currant, citrus, complex"
+  },
+
+  // --- Square Mile Coffee Roasters (London, UK) ---
+  {
+    id: "square-mile-red-brick",
+    roaster: "Square Mile Coffee Roasters",
+    name: "Red Brick Espresso",
+    roastLevel: "medium",
+    notes: "Chocolate, stone fruit, balanced"
+  },
+  {
+    id: "square-mile-sweetshop",
+    roaster: "Square Mile Coffee Roasters",
+    name: "Sweetshop Espresso",
+    roastLevel: "medium-light",
+    notes: "Caramel, honey, red fruit"
+  },
+
+  // --- Drop Coffee Roasters (Stockholm, Sweden) ---
+  {
+    id: "drop-coffee-standard-blend",
+    roaster: "Drop Coffee Roasters",
+    name: "Standard Blend",
+    roastLevel: "light",
+    notes: "Floral, stone fruit, clean"
+  },
+  {
+    id: "drop-coffee-ethiopia-kayon-mountain",
+    roaster: "Drop Coffee Roasters",
+    name: "Ethiopia Kayon Mountain",
+    roastLevel: "light",
+    notes: "Jasmine, peach, tea-like"
+  },
+
+  // --- The Coffee Collective (Copenhagen, Denmark) ---
+  {
+    id: "coffee-collective-la-golondrina",
+    roaster: "The Coffee Collective",
+    name: "La Golondrina",
+    roastLevel: "light",
+    notes: "Orange, red apple, sugarcane"
+  },
+  {
+    id: "coffee-collective-kieni",
+    roaster: "The Coffee Collective",
+    name: "Kieni",
+    roastLevel: "light",
+    notes: "Black currant, grapefruit, wine"
+  },
+
+  // --- Coava Coffee Roasters (Portland, OR) ---
+  {
+    id: "coava-tres-barras",
+    roaster: "Coava Coffee Roasters",
+    name: "Tres Barras Brazil",
+    roastLevel: "medium",
+    notes: "Chocolate, almond, caramel"
+  },
+
+  // --- Ritual Coffee Roasters (San Francisco, CA) ---
+  {
+    id: "ritual-colombia-narino",
+    roaster: "Ritual Coffee Roasters",
+    name: "Colombia Nariño",
+    roastLevel: "medium-light",
+    notes: "Red apple, honey, almond"
+  },
+
+  // --- Intelligentsia Coffee (Chicago, IL) ---
+  {
+    id: "intelligentsia-house-blend",
+    roaster: "Intelligentsia Coffee",
+    name: "House Blend",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, caramel"
+  },
+
+  // --- George Howell Coffee (Acton, MA) ---
+  {
+    id: "george-howell-ethiopia-kochere",
+    roaster: "George Howell Coffee",
+    name: "Ethiopia Kochere",
+    roastLevel: "light",
+    notes: "Floral, stone fruit, tea"
+  },
+
+  // --- Joe Coffee Company (New York, NY) ---
+  {
+    id: "joe-coffee-the-daily",
+    roaster: "Joe Coffee Company",
+    name: "The Daily",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, balanced"
+  },
+  {
+    id: "joe-coffee-grand-dad",
+    roaster: "Joe Coffee Company",
+    name: "Grand Dad",
+    roastLevel: "medium-dark",
+    notes: "Dark chocolate, molasses, nuts"
+  },
+
+  // --- Partners Coffee (Brooklyn, NY) ---
+  {
+    id: "partners-brooklyn-blend",
+    roaster: "Partners Coffee",
+    name: "Brooklyn Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, citrus"
+  },
+
+  // --- Gimme! Coffee (Ithaca, NY) ---
+  {
+    id: "gimme-leftist",
+    roaster: "Gimme! Coffee",
+    name: "Leftist Espresso",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, almond"
+  },
+
+  // --- Kickapoo Coffee Roasters (Viroqua, WI) ---
+  {
+    id: "kickapoo-dulcinea",
+    roaster: "Kickapoo Coffee Roasters",
+    name: "Dulcinea",
+    roastLevel: "medium",
+    notes: "Sweet, chocolate, stone fruit"
+  },
+
+  // --- Madcap Coffee Company (Grand Rapids, MI) ---
+  {
+    id: "madcap-third-coast",
+    roaster: "Madcap Coffee Company",
+    name: "Third Coast Blend",
+    roastLevel: "medium-light",
+    notes: "Caramel, red apple, clean"
+  },
+
+  // --- Prodigal Coffee (Denver, CO) ---
+  {
+    id: "prodigal-ethiopia-konga",
+    roaster: "Prodigal Coffee",
+    name: "Ethiopia Konga",
+    roastLevel: "light",
+    notes: "Blueberry, floral, tea-like"
+  },
+
+  // --- Black & White Coffee Roasters (Raleigh, NC) ---
+  {
+    id: "black-and-white-classic",
+    roaster: "Black & White Coffee Roasters",
+    name: "Classic Espresso",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, nutty"
+  },
+  {
+    id: "black-and-white-dial-in",
+    roaster: "Black & White Coffee Roasters",
+    name: "Dial-In Espresso",
+    roastLevel: "medium-light",
+    notes: "Balanced, sweet, fruit-forward"
+  },
+
+  // --- Passenger Coffee (Lancaster, PA) ---
+  {
+    id: "passenger-steady-state",
+    roaster: "Passenger Coffee",
+    name: "Steady State Blend",
+    roastLevel: "medium",
+    notes: "Brown sugar, chocolate, smooth"
+  },
+
+  // --- Olympia Coffee Roasting (Olympia, WA) ---
+  {
+    id: "olympia-big-truck",
+    roaster: "Olympia Coffee Roasting",
+    name: "Big Truck Organic",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, balanced"
+  },
+
+  // --- Bows + Arrows Coffee Roasters (Austin, TX) ---
+  {
+    id: "bows-arrows-four-arrows",
+    roaster: "Bows + Arrows Coffee Roasters",
+    name: "Four Arrows Blend",
+    roastLevel: "medium",
+    notes: "Cocoa, nutty, caramel"
+  },
+
+  // --- Cat & Cloud Coffee (Santa Cruz, CA) ---
+  {
+    id: "cat-and-cloud-we-are-dreamers",
+    roaster: "Cat & Cloud Coffee",
+    name: "We Are Dreamers",
+    roastLevel: "medium",
+    notes: "Chocolate, brown sugar, balanced"
+  },
+
+  // --- Red Rooster Coffee (Floyd, VA) ---
+  {
+    id: "red-rooster-the-good-one",
+    roaster: "Red Rooster Coffee",
+    name: "The Good One",
+    roastLevel: "medium",
+    notes: "Chocolate, almond, smooth"
+  },
+
+  // --- Ruby Coffee Roasters (Nelsonville, WI) ---
+  {
+    id: "ruby-coffee-cadence",
+    roaster: "Ruby Coffee Roasters",
+    name: "Cadence",
+    roastLevel: "medium-light",
+    notes: "Sweet, balanced, caramel"
+  },
+
+  // --- Metric Coffee (Chicago, IL) ---
+  {
+    id: "metric-coffee-ethiopia-kochere",
+    roaster: "Metric Coffee",
+    name: "Ethiopia Kochere",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like"
+  },
+
+  // --- 49th Parallel Coffee Roasters (Vancouver, Canada) ---
+  {
+    id: "49th-parallel-epic",
+    roaster: "49th Parallel Coffee Roasters",
+    name: "Epic Espresso",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, balanced"
+  },
+
+  // --- Phil & Sebastian (Calgary, Canada) ---
+  {
+    id: "phil-sebastian-calgary-blend",
+    roaster: "Phil & Sebastian",
+    name: "Calgary Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, stone fruit, clean"
+  },
+
+  // --- Rogue Wave Coffee (Edmonton, Canada) ---
+  {
+    id: "rogue-wave-rogue",
+    roaster: "Rogue Wave Coffee",
+    name: "Rogue Blend",
+    roastLevel: "medium-light",
+    notes: "Caramel, red fruit, balanced"
+  },
+
+  // --- Workshop Coffee (London, UK) ---
+  {
+    id: "workshop-cult-of-done",
+    roaster: "Workshop Coffee",
+    name: "Cult of Done Espresso",
+    roastLevel: "medium",
+    notes: "Cocoa, dried fruit, balanced"
+  },
+
+  // --- Origin Coffee (Cornwall, UK) ---
+  {
+    id: "origin-resolute",
+    roaster: "Origin Coffee",
+    name: "Resolute Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, smooth"
+  },
+
+  // --- Ozone Coffee Roasters (London, UK) ---
+  {
+    id: "ozone-empire-state",
+    roaster: "Ozone Coffee Roasters",
+    name: "Empire State",
+    roastLevel: "medium",
+    notes: "Chocolate, nut, balanced"
+  },
+
+  // --- Climpson & Sons (London, UK) ---
+  {
+    id: "climpson-estate",
+    roaster: "Climpson & Sons",
+    name: "Estate Espresso",
+    roastLevel: "medium",
+    notes: "Caramel, chocolate, red fruit"
+  },
+
+  // --- Has Bean Coffee (Stafford, UK) ---
+  {
+    id: "has-bean-jailbreak",
+    roaster: "Has Bean Coffee",
+    name: "Jailbreak Espresso",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, nutty"
+  },
+
+  // --- Colonna Coffee (Bath, UK) ---
+  {
+    id: "colonna-dark-arts",
+    roaster: "Colonna Coffee",
+    name: "Dark Arts Espresso",
+    roastLevel: "medium",
+    notes: "Dark chocolate, cherry, syrupy"
+  },
+
+  // --- Bonanza Coffee Roasters (Berlin, Germany) ---
+  {
+    id: "bonanza-rocko-mountain",
+    roaster: "Bonanza Coffee Roasters",
+    name: "Rocko Mountain Reserve",
+    roastLevel: "light",
+    notes: "Floral, blueberry, tea-like"
+  },
+
+  // --- The Barn Coffee Roasters (Berlin, Germany) ---
+  {
+    id: "the-barn-espresso-blend",
+    roaster: "The Barn Coffee Roasters",
+    name: "Espresso Blend",
+    roastLevel: "light",
+    notes: "Red fruit, chocolate, juicy"
+  },
+
+  // --- April Coffee Roasters (Copenhagen, Denmark) ---
+  {
+    id: "april-ethiopia-yirgacheffe",
+    roaster: "April Coffee Roasters",
+    name: "Ethiopia Yirgacheffe",
+    roastLevel: "light",
+    notes: "Jasmine, peach, bergamot"
+  },
+
+  // --- Koppi Roasters (Helsingborg, Sweden) ---
+  {
+    id: "koppi-mission",
+    roaster: "Koppi Roasters",
+    name: "Mission Blend",
+    roastLevel: "light",
+    notes: "Floral, citrus, clean"
+  },
+
+  // --- Fuglen Coffee Roasters (Oslo, Norway) ---
+  {
+    id: "fuglen-house",
+    roaster: "Fuglen Coffee Roasters",
+    name: "Fuglen House Blend",
+    roastLevel: "light",
+    notes: "Sweet, balanced, fruity"
+  },
+
+  // --- Omotesando Koffee / Koffee Mameya (Tokyo, Japan) ---
+  {
+    id: "koffee-mameya-ethiopia",
+    roaster: "Koffee Mameya",
+    name: "Ethiopia Natural",
+    roastLevel: "light",
+    notes: "Berry, wine, floral"
+  },
+
+  // --- Glitch Coffee & Roasters (Tokyo, Japan) ---
+  {
+    id: "glitch-colombia-la-palma",
+    roaster: "Glitch Coffee & Roasters",
+    name: "Colombia La Palma",
+    roastLevel: "light",
+    notes: "Stone fruit, caramel, clean"
+  },
+
+  // --- ST. ALi (Melbourne, Australia) ---
+  {
+    id: "st-ali-orthodox",
+    roaster: "ST. ALi",
+    name: "Orthodox Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, balanced"
+  },
+
+  // --- Market Lane Coffee (Melbourne, Australia) ---
+  {
+    id: "market-lane-seasonal-espresso",
+    roaster: "Market Lane Coffee",
+    name: "Seasonal Espresso",
+    roastLevel: "medium",
+    notes: "Sweet, balanced, chocolate"
+  },
+
+  // --- Seven Seeds Coffee Roasters (Melbourne, Australia) ---
+  {
+    id: "seven-seeds-golden-gate",
+    roaster: "Seven Seeds Coffee Roasters",
+    name: "Golden Gate Blend",
+    roastLevel: "medium",
+    notes: "Milk chocolate, nut, caramel"
+  },
+
+  // --- Proud Mary Coffee (Melbourne, Australia) ---
+  {
+    id: "proud-mary-omni",
+    roaster: "Proud Mary Coffee",
+    name: "Omni Blend",
+    roastLevel: "medium",
+    notes: "Balanced, fruit, chocolate"
+  },
+
+  // --- Commercial / grocery brands ---
+  {
+    id: "lavazza-crema-e-gusto",
+    roaster: "Lavazza",
+    name: "Crema e Gusto",
+    roastLevel: "dark",
+    notes: "Bold, spicy, chocolate"
+  },
+  {
+    id: "dunkin-original-blend",
+    roaster: "Dunkin'",
+    name: "Original Blend",
+    roastLevel: "medium",
+    notes: "Smooth, balanced, mild"
+  },
+  {
+    id: "caribou-caribou-blend",
+    roaster: "Caribou Coffee",
+    name: "Caribou Blend",
+    roastLevel: "medium",
+    notes: "Sweet, syrupy, balanced"
+  },
+  {
+    id: "community-coffee-private-reserve",
+    roaster: "Community Coffee",
+    name: "Private Reserve",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, smooth"
+  },
+  {
+    id: "eight-oclock-original",
+    roaster: "Eight O'Clock Coffee",
+    name: "The Original",
+    roastLevel: "medium",
+    notes: "Mild, smooth, classic"
+  },
+  {
+    id: "folgers-classic-roast",
+    roaster: "Folgers",
+    name: "Classic Roast",
+    roastLevel: "medium",
+    notes: "Classic, balanced, mild"
+  },
+  {
+    id: "kicking-horse-kick-ass",
+    roaster: "Kicking Horse Coffee",
+    name: "Kick Ass Blend",
+    roastLevel: "dark",
+    notes: "Bold, smoky, full-bodied"
+  },
+  {
+    id: "kicking-horse-three-sisters",
+    roaster: "Kicking Horse Coffee",
+    name: "Three Sisters",
+    roastLevel: "medium",
+    notes: "Nutty, chocolate, balanced"
+  },
+  {
+    id: "death-wish-original",
+    roaster: "Death Wish Coffee",
+    name: "Original",
+    roastLevel: "dark",
+    notes: "Very bold, smoky, intense"
   }
 ];
 

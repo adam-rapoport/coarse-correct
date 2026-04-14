@@ -41,6 +41,10 @@
             <input type="radio" name="method" value="chemex">
             <span>Chemex</span>
           </label>
+          <label class="radio-label">
+            <input type="radio" name="method" value="frenchPress">
+            <span>French Press</span>
+          </label>
         </div>
       </div>
 
@@ -103,21 +107,26 @@
       <div class="form-group">
         <label for="roast-date">Roast Date</label>
         <input type="date" id="roast-date" required>
+        <p class="temp-hint">No roast date on the bag? Estimate backward from the &ldquo;best by&rdquo; date &mdash; most specialty roasters print about 6 months out.</p>
       </div>
 
       <div class="form-group" id="dose-group">
         <label for="dose" id="dose-label">Dose (grams)</label>
         <div class="dose-input-wrapper" id="dose-wrapper">
-          <input type="number" id="dose" value="18" min="10" max="25" step="0.5" required>
+          <input type="number" id="dose" value="18" min="10" max="30" step="0.5" required>
           <span class="dose-unit" id="dose-unit">g</span>
         </div>
       </div>
 
       <div class="form-group" id="temp-group">
         <label for="water-temp">Water Temperature <span class="optional-label">(optional)</span></label>
+        <div class="temp-unit-toggle" id="temp-unit-toggle">
+          <button type="button" class="mode-btn active" data-unit="F">&deg;F</button>
+          <button type="button" class="mode-btn" data-unit="C">&deg;C</button>
+        </div>
         <div class="temp-input-wrapper">
           <input type="number" id="water-temp" placeholder="200" min="190" max="212" step="1">
-          <span class="temp-unit">&deg;F</span>
+          <span class="temp-unit" id="temp-unit-label">&deg;F</span>
         </div>
         <p class="temp-hint" id="temp-hint">Default: 200&deg;F for Espresso</p>
       </div>

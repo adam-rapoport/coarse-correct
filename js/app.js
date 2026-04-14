@@ -7,12 +7,15 @@ var highlightedIndex = -1;
 var currentAdjustment = null;
 var lastResult = null;
 var selectedRating = 0;
+var tempUnit = "F"; // "F" or "C" — user preference, persisted in localStorage
 
 document.addEventListener("DOMContentLoaded", function () {
+  loadTempUnitPreference();
   populateGrinderDropdown();
   setDefaultRoastDate();
   initBeanSearch();
   initBrewMethodToggle();
+  initTempUnitToggle();
   initBrewLogForm();
 
   document.getElementById("grind-form").addEventListener("submit", function (e) {
@@ -29,7 +32,11 @@ function populateGrinderDropdown() {
   while (select.options.length > 1) {
     select.remove(1);
   }
-  GRINDERS.forEach(function (grinder) {
+  // Sort alphabetically by name (case-insensitive) without mutating the source array
+  const sortedGrinders = GRINDERS.slice().sort(function (a, b) {
+    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+  });
+  sortedGrinders.forEach(function (grinder) {
     const option = document.createElement("option");
     option.value = grinder.id;
     option.textContent = grinder.name;
@@ -73,9 +80,8 @@ function updateDoseInput(method) {
   var wrapper = document.getElementById("dose-wrapper");
   var config = BREW_METHOD_CONFIG[method];
 
-  // Update temp hint
-  var tempHint = document.getElementById("temp-hint");
-  tempHint.textContent = "Default: " + config.tempDefault + "\u00B0F for " + config.label;
+  // Refresh the temp input's min/max/placeholder/hint for the new method (and current unit)
+  refreshTempInputAttrs();
 
   // Clear the wrapper
   wrapper.innerHTML = "";
@@ -105,7 +111,7 @@ function updateDoseInput(method) {
     input.id = "dose";
     input.value = config.doseDefault;
     input.min = "10";
-    input.max = "25";
+    input.max = "30";
     input.step = "0.5";
     input.required = true;
 
@@ -117,6 +123,127 @@ function updateDoseInput(method) {
     wrapper.appendChild(input);
     wrapper.appendChild(unit);
   }
+}
+
+// ── Temperature unit toggle (°F / °C) ─────────────────────────────────
+
+function fToC(f) {
+  return (f - 32) * 5 / 9;
+}
+
+function cToF(c) {
+  return (c * 9 / 5) + 32;
+}
+
+function roundTemp(value) {
+  // Display whole-degree precision for temperatures
+  return Math.round(value);
+}
+
+function loadTempUnitPreference() {
+  try {
+    var stored = localStorage.getItem("coarseCorrect_tempUnit");
+    if (stored === "C" || stored === "F") {
+      tempUnit = stored;
+    }
+  } catch (e) {
+    // localStorage may be unavailable (private browsing, etc.) — fall back to default
+  }
+}
+
+function saveTempUnitPreference() {
+  try {
+    localStorage.setItem("coarseCorrect_tempUnit", tempUnit);
+  } catch (e) {
+    // Ignore write failures
+  }
+}
+
+function updateTempHint(config) {
+  var tempHint = document.getElementById("temp-hint");
+  if (!tempHint) return;
+  if (!config) {
+    config = BREW_METHOD_CONFIG[getSelectedMethod()];
+  }
+  var defaultInDisplayUnit = tempUnit === "C" ? roundTemp(fToC(config.tempDefault)) : config.tempDefault;
+  tempHint.textContent = "Default: " + defaultInDisplayUnit + "\u00B0" + tempUnit + " for " + config.label;
+}
+
+// Refresh min/max/placeholder/label to match current tempUnit + selected brew method.
+// Does NOT touch the input's value.
+function refreshTempInputAttrs() {
+  var config = BREW_METHOD_CONFIG[getSelectedMethod()];
+  var input = document.getElementById("water-temp");
+  var unitLabel = document.getElementById("temp-unit-label");
+  if (!input || !unitLabel) return;
+
+  if (tempUnit === "C") {
+    input.min = String(roundTemp(fToC(config.tempMin)));
+    input.max = String(roundTemp(fToC(config.tempMax)));
+    input.placeholder = String(roundTemp(fToC(config.tempDefault)));
+    unitLabel.innerHTML = "&deg;C";
+  } else {
+    input.min = String(config.tempMin);
+    input.max = String(config.tempMax);
+    input.placeholder = String(config.tempDefault);
+    unitLabel.innerHTML = "&deg;F";
+  }
+  updateTempHint(config);
+}
+
+function initTempUnitToggle() {
+  var toggle = document.getElementById("temp-unit-toggle");
+  if (!toggle) return;
+  var buttons = toggle.querySelectorAll(".mode-btn");
+
+  // Reflect the persisted preference in the UI on load
+  buttons.forEach(function (btn) {
+    if (btn.getAttribute("data-unit") === tempUnit) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
+  refreshTempInputAttrs();
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var newUnit = btn.getAttribute("data-unit");
+      if (newUnit === tempUnit) return;
+
+      var input = document.getElementById("water-temp");
+      var previousValue = input.value;
+
+      tempUnit = newUnit;
+      saveTempUnitPreference();
+
+      buttons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+
+      refreshTempInputAttrs();
+
+      // Convert any existing user-entered value in place
+      if (previousValue !== "") {
+        var current = parseFloat(previousValue);
+        if (!isNaN(current)) {
+          var converted = tempUnit === "C" ? fToC(current) : cToF(current);
+          input.value = String(roundTemp(converted));
+        }
+      }
+    });
+  });
+}
+
+// Replace Fahrenheit temperature strings in an explanation line with Celsius
+// when the user is in °C mode. The algorithm always returns explanations in °F,
+// so we post-process them here to keep unit concerns out of the math layer.
+function localizeExplanationTemp(text) {
+  if (tempUnit !== "C") return text;
+  return text.replace(/(\d+(?:\.\d+)?)\u00B0F/g, function (match, numStr) {
+    var f = parseFloat(numStr);
+    return roundTemp(fToC(f)) + "\u00B0C";
+  });
 }
 
 // ── Bean search ───────────────────────────────────────────────────────
@@ -343,14 +470,19 @@ function handleSubmit() {
     doseOrRatio = parseInt(doseEl.value);
   } else {
     doseOrRatio = parseFloat(doseEl.value);
-    if (isNaN(doseOrRatio) || doseOrRatio < 10 || doseOrRatio > 25) {
-      showError("Please enter a dose between 10g and 25g.");
+    if (isNaN(doseOrRatio) || doseOrRatio < 10 || doseOrRatio > 30) {
+      showError("Please enter a dose between 10g and 30g.");
       return;
     }
   }
 
   var waterTempEl = document.getElementById("water-temp");
-  var waterTemp = waterTempEl.value ? parseFloat(waterTempEl.value) : null;
+  var waterTemp = null;
+  if (waterTempEl.value) {
+    var rawTemp = parseFloat(waterTempEl.value);
+    // Algorithm expects Fahrenheit — convert from Celsius input if needed
+    waterTemp = tempUnit === "C" ? cToF(rawTemp) : rawTemp;
+  }
 
   const result = getRecommendation(grinderId, brewMethod, roastLevel, roastDate, doseOrRatio, waterTemp);
 
@@ -393,11 +525,11 @@ function renderResult(result) {
   }
   settingEl.textContent = result.display;
 
-  // Build explanation list
+  // Build explanation list (localize any embedded temperatures to user's unit preference)
   explanationEl.innerHTML = "";
   result.explanations.forEach(function (text) {
     const li = document.createElement("li");
-    li.textContent = text;
+    li.textContent = localizeExplanationTemp(text);
     explanationEl.appendChild(li);
   });
 
@@ -579,7 +711,14 @@ function saveBrew() {
     roastLevel: document.querySelector('input[name="roast"]:checked').value,
     roastDate: document.getElementById("roast-date").value,
     doseOrRatio: parseFloat(document.getElementById("dose").value),
-    waterTemp: document.getElementById("water-temp").value ? parseFloat(document.getElementById("water-temp").value) : null,
+    waterTemp: (function () {
+      var v = document.getElementById("water-temp").value;
+      if (!v) return null;
+      var n = parseFloat(v);
+      if (isNaN(n)) return null;
+      // Canonicalize to Fahrenheit for the brew log so the journal stays consistent
+      return tempUnit === "C" ? cToF(n) : n;
+    })(),
     originalSetting: lastResult.setting,
     originalDisplay: lastResult.display,
     finalSetting: finalSetting,

@@ -64,6 +64,26 @@ const BREW_METHOD_CONFIG = {
     tempMin: 195,
     tempMax: 212,
     tempAdjFactor: 0.006
+  },
+  frenchPress: {
+    label: "French Press",
+    roastOffsets: {
+      "light": -0.15,
+      "medium-light": -0.07,
+      "medium": 0.00,
+      "medium-dark": 0.07,
+      "dark": 0.15
+    },
+    doseType: "ratio",
+    doseDefault: 15,
+    doseAdjBase: 15,
+    doseAdjFactor: -0.02,
+    freshnessMultiplier: 0.5,
+    stepMultiplier: 2,
+    tempDefault: 200,
+    tempMin: 190,
+    tempMax: 212,
+    tempAdjFactor: 0.005
   }
 };
 

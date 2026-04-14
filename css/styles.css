@@ -421,6 +421,18 @@ input[type="number"]:focus {
   pointer-events: none;
 }
 
+/* Temperature unit toggle */
+.temp-unit-toggle {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.temp-unit-toggle .mode-btn {
+  flex: 0 0 auto;
+  min-width: 3.25rem;
+}
+
 /* Temperature input */
 .temp-input-wrapper {
   position: relative;
