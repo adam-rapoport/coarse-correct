@@ -1621,7 +1621,1253 @@ const BEANS = [
     name: "Original",
     roastLevel: "dark",
     notes: "Very bold, smoky, intense"
-  }
+  },
+
+  // === v1.0.2 additions: expanded bean catalog ===
+
+  // --- Tandem Coffee Roasters (Portland, ME) ---
+  {
+    id: "tandem-time-and-temperature",
+    roaster: "Tandem Coffee Roasters",
+    name: "Time & Temperature",
+    roastLevel: "light",
+    notes: "Butterscotch, white chocolate, red berries"
+  },
+  {
+    id: "tandem-west-end-blues",
+    roaster: "Tandem Coffee Roasters",
+    name: "West End Blues",
+    roastLevel: "medium-light",
+    notes: "Dark chocolate, baking spices, black tea, toffee"
+  },
+  {
+    id: "tandem-banko-gotiti",
+    roaster: "Tandem Coffee Roasters",
+    name: "Banko Gotiti, Ethiopia",
+    roastLevel: "light",
+    notes: "Limeade, tangerine, lemongrass"
+  },
+  {
+    id: "tandem-uriel-cardona",
+    roaster: "Tandem Coffee Roasters",
+    name: "Uriel Cardona, Colombia",
+    roastLevel: "light",
+    notes: "Papaya, lime, panela"
+  },
+
+  // --- Greater Goods Coffee (Austin, TX) ---
+  {
+    id: "greater-goods-kickstart",
+    roaster: "Greater Goods Coffee",
+    name: "Kickstart Espresso",
+    roastLevel: "medium-dark",
+    notes: "Brown sugar, caramel, dark chocolate"
+  },
+  {
+    id: "greater-goods-am-rescue",
+    roaster: "Greater Goods Coffee",
+    name: "A.M. Rescue",
+    roastLevel: "medium-light",
+    notes: "Balanced, smooth, easy-drinking"
+  },
+  {
+    id: "greater-goods-rise-and-shine",
+    roaster: "Greater Goods Coffee",
+    name: "Rise & Shine",
+    roastLevel: "dark",
+    notes: "Bold, roasty, dark chocolate"
+  },
+  {
+    id: "greater-goods-fresh-perspective",
+    roaster: "Greater Goods Coffee",
+    name: "Fresh Perspective, Ethiopia",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like, bright"
+  },
+
+  // --- Cuvée Coffee (Austin, TX) ---
+  {
+    id: "cuvee-stella-cometa",
+    roaster: "Cuvée Coffee",
+    name: "Stella Cometa",
+    roastLevel: "medium",
+    notes: "Caramel, hazelnut, mild acidity"
+  },
+  {
+    id: "cuvee-emporium",
+    roaster: "Cuvée Coffee",
+    name: "Emporium",
+    roastLevel: "medium",
+    notes: "Toasty, malty, black tea"
+  },
+  {
+    id: "cuvee-west-pole",
+    roaster: "Cuvée Coffee",
+    name: "West Pole",
+    roastLevel: "dark",
+    notes: "Cocoa nib, molasses, milk chocolate"
+  },
+  {
+    id: "cuvee-karmadillo",
+    roaster: "Cuvée Coffee",
+    name: "Karmadillo",
+    roastLevel: "dark",
+    notes: "Bold, dark chocolate, roasty"
+  },
+
+  // --- Methodical Coffee (Greenville, SC) ---
+  {
+    id: "methodical-colombia-landmark",
+    roaster: "Methodical Coffee",
+    name: "Colombia, Landmark",
+    roastLevel: "medium",
+    notes: "Caramel, nutty, citrus"
+  },
+  {
+    id: "methodical-ethiopia-bombe-abore",
+    roaster: "Methodical Coffee",
+    name: "Ethiopia, Bombe Abore",
+    roastLevel: "light",
+    notes: "Raspberry, citrus, jammy"
+  },
+  {
+    id: "methodical-brazil-signature-series",
+    roaster: "Methodical Coffee",
+    name: "Brazil, Signature Series",
+    roastLevel: "medium-dark",
+    notes: "Roasty, dark chocolate, nutty"
+  },
+  {
+    id: "methodical-guatemala-ixlama",
+    roaster: "Methodical Coffee",
+    name: "Guatemala, Ixlama",
+    roastLevel: "medium",
+    notes: "Chocolate, apple, caramel"
+  },
+
+  // --- Ceremony Coffee Roasters (Annapolis, MD) ---
+  {
+    id: "ceremony-thesis",
+    roaster: "Ceremony Coffee Roasters",
+    name: "Thesis",
+    roastLevel: "medium-light",
+    notes: "Chocolate chip cookie, brown sugar, sweet"
+  },
+  {
+    id: "ceremony-mass-appeal",
+    roaster: "Ceremony Coffee Roasters",
+    name: "Mass Appeal",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, nutty, approachable"
+  },
+  {
+    id: "ceremony-destroyer",
+    roaster: "Ceremony Coffee Roasters",
+    name: "Destroyer",
+    roastLevel: "medium",
+    notes: "Berry, chocolate, bright, fruity"
+  },
+  {
+    id: "ceremony-colombia-aristides-guarnizo",
+    roaster: "Ceremony Coffee Roasters",
+    name: "Colombia, Aristides Guarnizo",
+    roastLevel: "light",
+    notes: "Citric, floral, clean, sweet"
+  },
+
+  // --- Vigilante Coffee (Hyattsville, MD) ---
+  {
+    id: "vigilante-tin-lizzie",
+    roaster: "Vigilante Coffee",
+    name: "Tin Lizzie Espresso",
+    roastLevel: "medium",
+    notes: "Chocolate, balanced, nutty"
+  },
+  {
+    id: "vigilante-el-fuego",
+    roaster: "Vigilante Coffee",
+    name: "El Fuego",
+    roastLevel: "dark",
+    notes: "Bold, smoky, dark chocolate, roasty"
+  },
+  {
+    id: "vigilante-ethiopia-natty-cheffe",
+    roaster: "Vigilante Coffee",
+    name: "Ethiopia, Natty Cheffe",
+    roastLevel: "light",
+    notes: "Floral, berry, citrus, tea-like"
+  },
+  {
+    id: "vigilante-colombia-la-falda",
+    roaster: "Vigilante Coffee",
+    name: "Colombia, La Falda",
+    roastLevel: "medium",
+    notes: "Caramel, chocolate, balanced"
+  },
+
+  // --- Revelator Coffee (Birmingham, AL) ---
+  {
+    id: "revelator-petunias",
+    roaster: "Revelator Coffee",
+    name: "Petunias",
+    roastLevel: "medium",
+    notes: "Red cherry, toasted nuts, cocoa"
+  },
+  {
+    id: "revelator-lonely-hunter",
+    roaster: "Revelator Coffee",
+    name: "Lonely Hunter",
+    roastLevel: "medium-light",
+    notes: "Balanced, sweet, fruit, clean"
+  },
+  {
+    id: "revelator-misfit",
+    roaster: "Revelator Coffee",
+    name: "Misfit",
+    roastLevel: "dark",
+    notes: "Bold, dark chocolate, roasty"
+  },
+
+  // --- French Truck Coffee (New Orleans, LA) ---
+  {
+    id: "french-truck-le-grand-coq-rouge",
+    roaster: "French Truck Coffee",
+    name: "Le Grand Coq Rouge",
+    roastLevel: "medium",
+    notes: "Bold, creamy, chocolate, nutty"
+  },
+  {
+    id: "french-truck-la-belle-noir",
+    roaster: "French Truck Coffee",
+    name: "La Belle Noir",
+    roastLevel: "medium",
+    notes: "Dried cherry, cocoa, dark berry"
+  },
+  {
+    id: "french-truck-new-orleans-dark-roast",
+    roaster: "French Truck Coffee",
+    name: "New Orleans Dark Roast",
+    roastLevel: "dark",
+    notes: "Bold, smoky, dark chocolate, roasty"
+  },
+  {
+    id: "french-truck-ruby-breakfast-blend",
+    roaster: "French Truck Coffee",
+    name: "Ruby Breakfast Blend",
+    roastLevel: "medium-light",
+    notes: "Bright, balanced, sweet, easy-drinking"
+  },
+
+  // --- Crema Coffee Roasters (Nashville, TN) ---
+  {
+    id: "crema-tres-banderas",
+    roaster: "Crema Coffee Roasters",
+    name: "Tres Banderas",
+    roastLevel: "medium",
+    notes: "Full-bodied, chocolate, balanced, nutty"
+  },
+  {
+    id: "crema-el-recuerdo",
+    roaster: "Crema Coffee Roasters",
+    name: "El Recuerdo, Colombia",
+    roastLevel: "medium-light",
+    notes: "Caramel, citrus, sweet, balanced"
+  },
+  {
+    id: "crema-rosarios-bajo",
+    roaster: "Crema Coffee Roasters",
+    name: "Rosarios Bajo, Peru",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like, clean"
+  },
+
+  // --- Barista Parlor (Nashville, TN) ---
+  {
+    id: "barista-parlor-golden-sound",
+    roaster: "Barista Parlor",
+    name: "Golden Sound",
+    roastLevel: "medium",
+    notes: "Smooth chocolate, sweet apple, nutty"
+  },
+  {
+    id: "barista-parlor-el-cadejo-guatemala",
+    roaster: "Barista Parlor",
+    name: "El Cadejo, Guatemala",
+    roastLevel: "medium-light",
+    notes: "Caramel, citrus, balanced, sweet"
+  },
+
+  // --- PERC Coffee (Savannah, GA) ---
+  {
+    id: "perc-up",
+    roaster: "PERC Coffee",
+    name: "PERC Up",
+    roastLevel: "medium-light",
+    notes: "Toffee, orange, brown sugar"
+  },
+  {
+    id: "perc-old-skool",
+    roaster: "PERC Coffee",
+    name: "Old Skool",
+    roastLevel: "medium",
+    notes: "Brown sugar, cocoa, nutella"
+  },
+  {
+    id: "perc-darrrk",
+    roaster: "PERC Coffee",
+    name: "DARRRK",
+    roastLevel: "medium-dark",
+    notes: "Roasty, black currant, dark caramel"
+  },
+  {
+    id: "perc-ethiopia-suke-werekata",
+    roaster: "PERC Coffee",
+    name: "Ethiopia, Suke Werekata",
+    roastLevel: "light",
+    notes: "Floral, citrus, berry, tea-like"
+  },
+
+  // --- Sweet Bloom Coffee Roasters (Lakewood, CO) ---
+  {
+    id: "sweet-bloom-hometown",
+    roaster: "Sweet Bloom Coffee Roasters",
+    name: "Hometown",
+    roastLevel: "medium",
+    notes: "Cocoa nibs, praline, blackberry"
+  },
+  {
+    id: "sweet-bloom-asefa-dukamo",
+    roaster: "Sweet Bloom Coffee Roasters",
+    name: "Asefa Dukamo (Ethiopia)",
+    roastLevel: "light",
+    notes: "Bergamot, lime, honey"
+  },
+  {
+    id: "sweet-bloom-carlos-guamanga",
+    roaster: "Sweet Bloom Coffee Roasters",
+    name: "Carlos Guamanga (Colombia)",
+    roastLevel: "medium-light",
+    notes: "Floral, cherry, panela"
+  },
+  {
+    id: "sweet-bloom-munkaze",
+    roaster: "Sweet Bloom Coffee Roasters",
+    name: "Munkaze (Burundi)",
+    roastLevel: "medium-light",
+    notes: "Plum, raisin, chocolate syrup"
+  },
+
+  // --- Sump Coffee (St. Louis, MO) ---
+  {
+    id: "sump-true-level",
+    roaster: "Sump Coffee",
+    name: "True Level",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, smooth"
+  },
+  {
+    id: "sump-melting-darkness",
+    roaster: "Sump Coffee",
+    name: "Melting Darkness",
+    roastLevel: "dark",
+    notes: "Bold, dark chocolate, roasty"
+  },
+  {
+    id: "sump-colombia-gerson-mora",
+    roaster: "Sump Coffee",
+    name: "Colombia Gerson Mora",
+    roastLevel: "light",
+    notes: "Bright, fruity, clean"
+  },
+  {
+    id: "sump-burundi-masha",
+    roaster: "Sump Coffee",
+    name: "Burundi Masha",
+    roastLevel: "light",
+    notes: "Floral, citric, tea-like"
+  },
+
+  // --- Blueprint Coffee (St. Louis, MO) ---
+  {
+    id: "blueprint-penrose",
+    roaster: "Blueprint Coffee",
+    name: "Penrose",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, caramel"
+  },
+  {
+    id: "blueprint-tekton",
+    roaster: "Blueprint Coffee",
+    name: "Tektōn",
+    roastLevel: "medium-light",
+    notes: "Sweet, fruity, clean"
+  },
+  {
+    id: "blueprint-drupe",
+    roaster: "Blueprint Coffee",
+    name: "Drupe",
+    roastLevel: "medium",
+    notes: "Stone fruit, cocoa, balanced"
+  },
+  {
+    id: "blueprint-gichathaini",
+    roaster: "Blueprint Coffee",
+    name: "Gichathaini (Kenya)",
+    roastLevel: "light",
+    notes: "Blackcurrant, citric, bright"
+  },
+
+  // --- Spyhouse Coffee (Minneapolis, MN) ---
+  {
+    id: "spyhouse-orion",
+    roaster: "Spyhouse Coffee",
+    name: "Orion",
+    roastLevel: "medium",
+    notes: "Well-rounded, chocolate, nutty"
+  },
+  {
+    id: "spyhouse-gemini",
+    roaster: "Spyhouse Coffee",
+    name: "Gemini",
+    roastLevel: "dark",
+    notes: "Balanced, bold, dark chocolate"
+  },
+  {
+    id: "spyhouse-star-of-the-north",
+    roaster: "Spyhouse Coffee",
+    name: "Star of the North",
+    roastLevel: "light",
+    notes: "Sweet, bright, fruity"
+  },
+  {
+    id: "spyhouse-bold-and-the-beautiful",
+    roaster: "Spyhouse Coffee",
+    name: "Bold and the Beautiful",
+    roastLevel: "dark",
+    notes: "Rich, roasty, smoky"
+  },
+
+  // --- Dogwood Coffee (Minneapolis, MN) ---
+  {
+    id: "dogwood-neon",
+    roaster: "Dogwood Coffee",
+    name: "Neon Espresso",
+    roastLevel: "medium-light",
+    notes: "Citrus, floral, sweet"
+  },
+  {
+    id: "dogwood-bear-hug",
+    roaster: "Dogwood Coffee",
+    name: "Bear Hug Espresso",
+    roastLevel: "medium-dark",
+    notes: "Chocolate, big body, nutty"
+  },
+  {
+    id: "dogwood-mixtape",
+    roaster: "Dogwood Coffee",
+    name: "Mixtape",
+    roastLevel: "medium",
+    notes: "Balanced, caramel, chocolate"
+  },
+  {
+    id: "dogwood-suke-quto",
+    roaster: "Dogwood Coffee",
+    name: "Suke Quto (Ethiopia)",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like"
+  },
+
+  // --- Populace Coffee (Bay City, MI) ---
+  {
+    id: "populace-house-blend",
+    roaster: "Populace Coffee",
+    name: "House Blend",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, caramel"
+  },
+  {
+    id: "populace-espresso-proper",
+    roaster: "Populace Coffee",
+    name: "Espresso Proper",
+    roastLevel: "medium-light",
+    notes: "Bright, fruity, sweet"
+  },
+  {
+    id: "populace-single-origin",
+    roaster: "Populace Coffee",
+    name: "Rotating Single Origin",
+    roastLevel: "light",
+    notes: "Floral, citric, clean"
+  },
+
+  // --- Devoción (Brooklyn, NY) ---
+  {
+    id: "devocion-honey",
+    roaster: "Devoción",
+    name: "Honey",
+    roastLevel: "medium",
+    notes: "Honey, orange blossom, caramel"
+  },
+  {
+    id: "devocion-toro",
+    roaster: "Devoción",
+    name: "Toro",
+    roastLevel: "medium",
+    notes: "Cocoa, vanilla, cherry, almond"
+  },
+  {
+    id: "devocion-wild-forest",
+    roaster: "Devoción",
+    name: "Wild Forest",
+    roastLevel: "medium-light",
+    notes: "Wild berries, cherry, cocoa butter"
+  },
+  {
+    id: "devocion-sombra",
+    roaster: "Devoción",
+    name: "Sombra",
+    roastLevel: "medium-dark",
+    notes: "Baker's chocolate, caramelized sugar, cinnamon"
+  },
+
+  // --- Café Grumpy (Brooklyn, NY) ---
+  {
+    id: "cafe-grumpy-heartbreaker",
+    roaster: "Café Grumpy",
+    name: "Heartbreaker Espresso",
+    roastLevel: "medium",
+    notes: "Blackberry, amaretto, dark chocolate"
+  },
+  {
+    id: "cafe-grumpy-momentum",
+    roaster: "Café Grumpy",
+    name: "Momentum",
+    roastLevel: "medium",
+    notes: "Malted milk chocolate, caramel, orange zest"
+  },
+  {
+    id: "cafe-grumpy-santo-tomas",
+    roaster: "Café Grumpy",
+    name: "Santo Tomas (Guatemala)",
+    roastLevel: "medium-light",
+    notes: "Sweet, balanced, fruity"
+  },
+
+  // --- Brooklyn Roasting Company (Brooklyn, NY) ---
+  {
+    id: "brooklyn-roasting-iris",
+    roaster: "Brooklyn Roasting Company",
+    name: "Iris Espresso",
+    roastLevel: "medium-dark",
+    notes: "Baker's chocolate, fig, root beer"
+  },
+  {
+    id: "brooklyn-roasting-bqe",
+    roaster: "Brooklyn Roasting Company",
+    name: "BQE Espresso",
+    roastLevel: "medium-dark",
+    notes: "Bold, chocolate, caramel"
+  },
+  {
+    id: "brooklyn-roasting-mocha-java",
+    roaster: "Brooklyn Roasting Company",
+    name: "Mocha Java",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, earthy"
+  },
+  {
+    id: "brooklyn-roasting-japan-blend",
+    roaster: "Brooklyn Roasting Company",
+    name: "Japan Blend",
+    roastLevel: "medium",
+    notes: "Smooth, nutty, chocolate"
+  },
+
+  // --- ReAnimator Coffee (Philadelphia, PA) ---
+  {
+    id: "reanimator-foundation",
+    roaster: "ReAnimator Coffee",
+    name: "Foundation Blend",
+    roastLevel: "medium-light",
+    notes: "Balanced, chocolate, fruit"
+  },
+  {
+    id: "reanimator-all-day",
+    roaster: "ReAnimator Coffee",
+    name: "All Day Blend",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, nutty"
+  },
+  {
+    id: "reanimator-kensington",
+    roaster: "ReAnimator Coffee",
+    name: "Kensington Blend",
+    roastLevel: "dark",
+    notes: "Bold, dark chocolate, roasty"
+  },
+  {
+    id: "reanimator-keystone",
+    roaster: "ReAnimator Coffee",
+    name: "Keystone Blend",
+    roastLevel: "light",
+    notes: "Bright, floral, citric"
+  },
+
+  // --- Elixr Coffee Roasters (Philadelphia, PA) ---
+  {
+    id: "elixr-treehouse",
+    roaster: "Elixr Coffee Roasters",
+    name: "Treehouse Blend",
+    roastLevel: "medium-light",
+    notes: "Caramel, pink berry, chocolate"
+  },
+  {
+    id: "elixr-beekeeper",
+    roaster: "Elixr Coffee Roasters",
+    name: "Beekeeper Espresso",
+    roastLevel: "medium",
+    notes: "Caramel, black tea, cherries"
+  },
+  {
+    id: "elixr-konga",
+    roaster: "Elixr Coffee Roasters",
+    name: "Konga (Ethiopia)",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like"
+  },
+  {
+    id: "elixr-weekender",
+    roaster: "Elixr Coffee Roasters",
+    name: "Weekender Blend",
+    roastLevel: "medium",
+    notes: "Balanced, chocolate, nutty"
+  },
+
+  // --- Quills Coffee (Louisville, KY) ---
+  {
+    id: "quills-blacksmith",
+    roaster: "Quills Coffee",
+    name: "Blacksmith Espresso",
+    roastLevel: "medium",
+    notes: "Baker's chocolate, blueberry, hazelnut"
+  },
+  {
+    id: "quills-inkwell",
+    roaster: "Quills Coffee",
+    name: "Inkwell Signature Blend",
+    roastLevel: "medium",
+    notes: "Graham cracker, cooked cherries, vanilla"
+  },
+  {
+    id: "quills-night-owl",
+    roaster: "Quills Coffee",
+    name: "Night Owl",
+    roastLevel: "dark",
+    notes: "Chocolate cake, caramel, tobacco finish"
+  },
+  {
+    id: "quills-southern-gothic",
+    roaster: "Quills Coffee",
+    name: "Southern Gothic",
+    roastLevel: "medium",
+    notes: "Chocolate, caramel, well-balanced"
+  },
+
+  // --- Starbucks (Seattle, WA) ---
+  {
+    id: "starbucks-veranda-blend",
+    roaster: "Starbucks",
+    name: "Veranda Blend",
+    roastLevel: "light",
+    notes: "Mellow, soft cocoa, lightly toasted nuts"
+  },
+  {
+    id: "starbucks-caffe-verona",
+    roaster: "Starbucks",
+    name: "Caffè Verona",
+    roastLevel: "dark",
+    notes: "Rich, dark cocoa, caramelized sugar"
+  },
+
+  // --- Dunkin' (Canton, MA) ---
+  {
+    id: "dunkin-midnight",
+    roaster: "Dunkin'",
+    name: "Midnight Dark Roast",
+    roastLevel: "dark",
+    notes: "Bold, full-bodied, smoky, intense"
+  },
+
+  // --- Folgers (Orrville, OH) ---
+  {
+    id: "folgers-black-silk",
+    roaster: "Folgers",
+    name: "Black Silk",
+    roastLevel: "dark",
+    notes: "Bold, rich, smooth, full-bodied"
+  },
+
+  // --- Lavazza (Turin, Italy) ---
+  {
+    id: "lavazza-qualita-rossa",
+    roaster: "Lavazza",
+    name: "Qualità Rossa",
+    roastLevel: "medium-dark",
+    notes: "Chocolate, dried fruit, full body, slightly smoky"
+  },
+
+  // --- Café Bustelo (Jacksonville, FL) ---
+  {
+    id: "cafe-bustelo-espresso",
+    roaster: "Café Bustelo",
+    name: "Espresso",
+    roastLevel: "dark",
+    notes: "Bold, smoky, full-bodied, roasty"
+  },
+
+  // --- Maxwell House (Chicago, IL) ---
+  {
+    id: "maxwell-house-original-roast",
+    roaster: "Maxwell House",
+    name: "Original Roast",
+    roastLevel: "medium",
+    notes: "Smooth, nutty, caramel, mild"
+  },
+
+  // --- Black Rifle Coffee Company (Salt Lake City, UT) ---
+  {
+    id: "black-rifle-just-black",
+    roaster: "Black Rifle Coffee Company",
+    name: "Just Black",
+    roastLevel: "medium",
+    notes: "Smooth, cocoa, vanilla, buttery finish"
+  },
+  {
+    id: "black-rifle-ak-47-espresso",
+    roaster: "Black Rifle Coffee Company",
+    name: "AK-47 Espresso",
+    roastLevel: "medium",
+    notes: "Nutty, citrus, dark chocolate, rich"
+  },
+  {
+    id: "black-rifle-beyond-black",
+    roaster: "Black Rifle Coffee Company",
+    name: "Beyond Black",
+    roastLevel: "dark",
+    notes: "Bold, spicy, dark chocolate, smoky"
+  },
+
+  // --- Green Mountain Coffee Roasters (Waterbury, VT) ---
+  {
+    id: "green-mountain-breakfast-blend",
+    roaster: "Green Mountain Coffee Roasters",
+    name: "Breakfast Blend",
+    roastLevel: "light",
+    notes: "Bright, nutty, cocoa, balanced"
+  },
+  {
+    id: "green-mountain-dark-magic",
+    roaster: "Green Mountain Coffee Roasters",
+    name: "Dark Magic",
+    roastLevel: "dark",
+    notes: "Bold, smoky, dark chocolate, dried fruit"
+  },
+
+  // --- Allegro Coffee (Thornton, CO) ---
+  {
+    id: "allegro-organic-continental-blend",
+    roaster: "Allegro Coffee",
+    name: "Organic Continental Blend",
+    roastLevel: "medium",
+    notes: "Fruity, earthy, chocolatey, full-flavored"
+  },
+  {
+    id: "allegro-organic-french-roast",
+    roaster: "Allegro Coffee",
+    name: "Organic French Roast",
+    roastLevel: "dark",
+    notes: "Smooth, sweet, smoky, bold"
+  },
+
+  // --- Don Francisco's Coffee (Vernon, CA) ---
+  {
+    id: "don-franciscos-colombia-supremo",
+    roaster: "Don Francisco's Coffee",
+    name: "100% Colombia Supremo",
+    roastLevel: "medium",
+    notes: "Bright, floral, winey, smooth"
+  },
+  {
+    id: "don-franciscos-espresso",
+    roaster: "Don Francisco's Coffee",
+    name: "Espresso",
+    roastLevel: "dark",
+    notes: "Bold, dark chocolate, smoke, spice"
+  },
+
+  // --- Equal Exchange (West Bridgewater, MA) ---
+  {
+    id: "equal-exchange-organic-breakfast-blend",
+    roaster: "Equal Exchange",
+    name: "Organic Breakfast Blend",
+    roastLevel: "medium",
+    notes: "Smooth, balanced, vanilla, milk chocolate"
+  },
+  {
+    id: "equal-exchange-organic-french-roast",
+    roaster: "Equal Exchange",
+    name: "Organic French Roast",
+    roastLevel: "dark",
+    notes: "Intense, full-bodied, dark chocolate, fruity"
+  },
+
+  // --- Cameron's Coffee (Shakopee, MN) ---
+  {
+    id: "camerons-breakfast-blend",
+    roaster: "Cameron's Coffee",
+    name: "Breakfast Blend",
+    roastLevel: "light",
+    notes: "Smooth, bright, mild, balanced"
+  },
+  {
+    id: "camerons-highlander-grog",
+    roaster: "Cameron's Coffee",
+    name: "Highlander Grog",
+    roastLevel: "light",
+    notes: "Butterscotch, caramel, vanilla, rum"
+  },
+
+  // --- New England Coffee (Malden, MA) ---
+  {
+    id: "new-england-breakfast-blend",
+    roaster: "New England Coffee",
+    name: "Breakfast Blend",
+    roastLevel: "medium",
+    notes: "Smooth, mild, balanced, clean"
+  },
+  {
+    id: "new-england-blueberry-cobbler",
+    roaster: "New England Coffee",
+    name: "Blueberry Cobbler",
+    roastLevel: "medium",
+    notes: "Sweet blueberry, spiced, smooth, aromatic"
+  },
+
+  // --- Seattle's Best Coffee (Seattle, WA) ---
+  {
+    id: "seattles-best-portside-blend",
+    roaster: "Seattle's Best Coffee",
+    name: "Portside Blend (No. 3)",
+    roastLevel: "medium",
+    notes: "Nutty, sweet, smooth, balanced"
+  },
+  {
+    id: "seattles-best-post-alley-blend",
+    roaster: "Seattle's Best Coffee",
+    name: "Post Alley Blend (No. 5)",
+    roastLevel: "dark",
+    notes: "Bold, intense, smoky, roasty"
+  },
+
+  // --- Chock full o'Nuts (Harrison, NY) ---
+  {
+    id: "chock-full-o-nuts-heavenly-original",
+    roaster: "Chock full o'Nuts",
+    name: "Heavenly Original",
+    roastLevel: "medium",
+    notes: "Smooth, full-bodied, nutty"
+  },
+  {
+    id: "chock-full-o-nuts-new-york-roast",
+    roaster: "Chock full o'Nuts",
+    name: "New York Roast",
+    roastLevel: "dark",
+    notes: "Bold, complex, cocoa, nutty"
+  },
+
+  // --- Gevalia (Northfield, IL) ---
+  {
+    id: "gevalia-house-blend",
+    roaster: "Gevalia",
+    name: "House Blend",
+    roastLevel: "medium",
+    notes: "Smooth, nutty, caramel, balanced"
+  },
+  {
+    id: "gevalia-french-roast",
+    roaster: "Gevalia",
+    name: "French Roast",
+    roastLevel: "dark",
+    notes: "Bold, smoky, dark chocolate, toasted caramel"
+  },
+
+  // --- Verve Coffee Roasters (Santa Cruz, CA) ---
+  {
+    id: "verve-wilder",
+    roaster: "Verve Coffee Roasters",
+    name: "Wilder",
+    roastLevel: "light",
+    notes: "Watermelon gummy, pineapple guava, orange sherbet"
+  },
+  {
+    id: "verve-cosmic-ripple",
+    roaster: "Verve Coffee Roasters",
+    name: "Cosmic Ripple",
+    roastLevel: "light",
+    notes: "Starfruit, Meyer lemon, black tea"
+  },
+  {
+    id: "verve-aster",
+    roaster: "Verve Coffee Roasters",
+    name: "Aster",
+    roastLevel: "medium",
+    notes: "Nectarine, key lime, brown sugar"
+  },
+
+  // --- Blue Bottle Coffee (Oakland, CA) ---
+  {
+    id: "blue-bottle-balanced",
+    roaster: "Blue Bottle Coffee",
+    name: "Balanced",
+    roastLevel: "medium-light",
+    notes: "Caramel, lemon zest, cocoa"
+  },
+  {
+    id: "blue-bottle-bold-blend",
+    roaster: "Blue Bottle Coffee",
+    name: "Bold Blend",
+    roastLevel: "medium-dark",
+    notes: "Caramel, roasted nut, malt"
+  },
+  {
+    id: "blue-bottle-winter-blend",
+    roaster: "Blue Bottle Coffee",
+    name: "Winter Blend",
+    roastLevel: "dark",
+    notes: "Dark chocolate, molasses, blackberry"
+  },
+
+  // --- Stumptown Coffee Roasters (Portland, OR) ---
+  {
+    id: "stumptown-homestead",
+    roaster: "Stumptown Coffee Roasters",
+    name: "Homestead Blend",
+    roastLevel: "medium-light",
+    notes: "Milk chocolate, cherry, orange"
+  },
+  {
+    id: "stumptown-trapper-creek-decaf",
+    roaster: "Stumptown Coffee Roasters",
+    name: "Trapper Creek Decaf",
+    roastLevel: "medium",
+    notes: "Caramel, cocoa, smooth"
+  },
+  {
+    id: "stumptown-echo-canyon",
+    roaster: "Stumptown Coffee Roasters",
+    name: "Echo Canyon Half-Caff",
+    roastLevel: "medium",
+    notes: "Bright, nuanced, balanced"
+  },
+
+  // --- Intelligentsia Coffee (Chicago, IL) ---
+  {
+    id: "intelligentsia-honey-badger",
+    roaster: "Intelligentsia Coffee",
+    name: "Honey Badger Espresso",
+    roastLevel: "medium",
+    notes: "Citrus, apple, dark sugars"
+  },
+  {
+    id: "intelligentsia-organic-french-roast",
+    roaster: "Intelligentsia Coffee",
+    name: "Organic French Roast",
+    roastLevel: "dark",
+    notes: "Pipe tobacco, blackstrap molasses, heavy body"
+  },
+  {
+    id: "intelligentsia-decaf-el-mago",
+    roaster: "Intelligentsia Coffee",
+    name: "Decaf El Mago",
+    roastLevel: "medium",
+    notes: "Red apple, caramelized pear, chocolate"
+  },
+
+  // --- Counter Culture Coffee (Durham, NC) ---
+  {
+    id: "counter-culture-forty-six",
+    roaster: "Counter Culture Coffee",
+    name: "Forty-Six",
+    roastLevel: "dark",
+    notes: "Dark chocolate, sweet, full-bodied"
+  },
+  {
+    id: "counter-culture-slow-motion-decaf",
+    roaster: "Counter Culture Coffee",
+    name: "Slow Motion Decaf",
+    roastLevel: "medium",
+    notes: "Molasses, cocoa, smooth"
+  },
+  {
+    id: "counter-culture-even-keel",
+    roaster: "Counter Culture Coffee",
+    name: "Even Keel Half-Caff",
+    roastLevel: "medium-dark",
+    notes: "Graham cracker, molasses, soft"
+  },
+
+  // --- Onyx Coffee Lab (Rogers, AR) ---
+  {
+    id: "onyx-tropical-weather",
+    roaster: "Onyx Coffee Lab",
+    name: "Tropical Weather",
+    roastLevel: "medium",
+    notes: "Mixed berries, sweet tea, raw honey, plum"
+  },
+  {
+    id: "onyx-eclipse",
+    roaster: "Onyx Coffee Lab",
+    name: "Eclipse",
+    roastLevel: "dark",
+    notes: "Baker's chocolate, burnt sugar, smoked vanilla bean"
+  },
+  {
+    id: "onyx-power-nap",
+    roaster: "Onyx Coffee Lab",
+    name: "Power Nap",
+    roastLevel: "medium-dark",
+    notes: "Brown sugar, cocoa, peach, floral"
+  },
+
+  // --- Sey Coffee (Brooklyn, NY) ---
+  {
+    id: "sey-danche",
+    roaster: "Sey Coffee",
+    name: "Danche",
+    roastLevel: "light",
+    notes: "Floral, citrus, tea-like"
+  },
+  {
+    id: "sey-chorso-bule",
+    roaster: "Sey Coffee",
+    name: "Chorso Bule",
+    roastLevel: "light",
+    notes: "Stone fruit, floral, bright"
+  },
+  {
+    id: "sey-felix-morocho",
+    roaster: "Sey Coffee",
+    name: "Felix Morocho",
+    roastLevel: "light",
+    notes: "Tropical fruit, citric, delicate"
+  },
+
+  // --- George Howell Coffee (Acton, MA) ---
+  {
+    id: "george-howell-cold-brew-blend",
+    roaster: "George Howell Coffee",
+    name: "Cold Brew Blend",
+    roastLevel: "medium",
+    notes: "Stout beer, dark chocolate, walnut"
+  },
+  {
+    id: "george-howell-daterra-sundrop",
+    roaster: "George Howell Coffee",
+    name: "Daterra Sundrop",
+    roastLevel: "light",
+    notes: "Butterscotch, blueberry, clove"
+  },
+  {
+    id: "george-howell-mamuto-aa",
+    roaster: "George Howell Coffee",
+    name: "Mamuto AA",
+    roastLevel: "light",
+    notes: "Blackberry, plum, cherry, violet"
+  },
+
+  // --- Heart Coffee Roasters (Portland, OR) ---
+  {
+    id: "heart-phono",
+    roaster: "Heart Coffee Roasters",
+    name: "Phono",
+    roastLevel: "medium",
+    notes: "Round, sweet, low acidity"
+  },
+  {
+    id: "heart-kenya-nyawira",
+    roaster: "Heart Coffee Roasters",
+    name: "Kenya Nyawira PB",
+    roastLevel: "light",
+    notes: "Blackcurrant, citrus, black tea"
+  },
+  {
+    id: "heart-colombia-decaf",
+    roaster: "Heart Coffee Roasters",
+    name: "Colombia Decaf",
+    roastLevel: "medium",
+    notes: "Caramel, cocoa, red fruit"
+  },
+
+  // --- Coava Coffee Roasters (Portland, OR) ---
+  {
+    id: "coava-so-blend",
+    roaster: "Coava Coffee Roasters",
+    name: "S.O. Blend",
+    roastLevel: "medium",
+    notes: "Dark caramel, chocolate, toffee, spice"
+  },
+  {
+    id: "coava-ethiopia-anbessa",
+    roaster: "Coava Coffee Roasters",
+    name: "Ethiopia Anbessa",
+    roastLevel: "light",
+    notes: "Pomegranate, rosé, dark chocolate"
+  },
+  {
+    id: "coava-ethiopia-wuri",
+    roaster: "Coava Coffee Roasters",
+    name: "Ethiopia Wuri",
+    roastLevel: "medium",
+    notes: "Bergamot, peach, red wine"
+  },
+
+  // --- Equator Coffees (San Rafael, CA) ---
+  {
+    id: "equator-super-bloom",
+    roaster: "Equator Coffees",
+    name: "Super Bloom Blend",
+    roastLevel: "light",
+    notes: "White peach, coffee blossom, ginger"
+  },
+  {
+    id: "equator-french-laundry",
+    roaster: "Equator Coffees",
+    name: "The French Laundry Blend",
+    roastLevel: "medium",
+    notes: "Citrus, baking spice, bittersweet chocolate"
+  },
+  {
+    id: "equator-namesake-blend",
+    roaster: "Equator Coffees",
+    name: "Equator Blend",
+    roastLevel: "medium",
+    notes: "Caramel, cocoa, balanced"
+  },
+
+  // --- Sightglass Coffee (San Francisco, CA) ---
+  {
+    id: "sightglass-summer-solstice",
+    roaster: "Sightglass Coffee",
+    name: "Summer Solstice",
+    roastLevel: "light",
+    notes: "Nectarine, blackberry, honeysuckle"
+  },
+  {
+    id: "sightglass-grizzly-peak",
+    roaster: "Sightglass Coffee",
+    name: "Grizzly Peak",
+    roastLevel: "medium",
+    notes: "Pear, Cara Cara orange, hazelnut"
+  },
+  {
+    id: "sightglass-toketee",
+    roaster: "Sightglass Coffee",
+    name: "Toketee",
+    roastLevel: "medium",
+    notes: "Apricot, cacao nib, caramel"
+  },
+
+  // --- Klatch Coffee (Rancho Cucamonga, CA) ---
+  {
+    id: "klatch-blue-thunder",
+    roaster: "Klatch Coffee",
+    name: "Blue Thunder Blend",
+    roastLevel: "medium-dark",
+    notes: "Rich, smoky, sweet"
+  },
+  {
+    id: "klatch-centennial-route-66",
+    roaster: "Klatch Coffee",
+    name: "Centennial Route 66 Espresso",
+    roastLevel: "medium",
+    notes: "Cherry, raspberry, chocolate"
+  },
+  {
+    id: "klatch-empire",
+    roaster: "Klatch Coffee",
+    name: "Empire",
+    roastLevel: "medium",
+    notes: "Chocolate, vanilla cola, blackberry"
+  },
+
+  // --- Bird Rock Coffee Roasters (San Diego, CA) ---
+  {
+    id: "bird-rock-the-blvd",
+    roaster: "Bird Rock Coffee Roasters",
+    name: "The BLVD",
+    roastLevel: "medium",
+    notes: "Plum, maple syrup, pepper"
+  },
+  {
+    id: "bird-rock-tolima-organic",
+    roaster: "Bird Rock Coffee Roasters",
+    name: "Tolima Organic",
+    roastLevel: "light",
+    notes: "Tangerine, brown sugar, crisp apple"
+  },
+  {
+    id: "bird-rock-pacamara-red-honey",
+    roaster: "Bird Rock Coffee Roasters",
+    name: "El Salvador Pacamara Red Honey",
+    roastLevel: "medium-light",
+    notes: "Balanced, subtle sweetness, stone fruit"
+  },
+
+  // --- Temple Coffee Roasters (Sacramento, CA) ---
+  {
+    id: "temple-lotus",
+    roaster: "Temple Coffee Roasters",
+    name: "Lotus Blend",
+    roastLevel: "medium",
+    notes: "Almond, milk chocolate, stone fruit"
+  },
+  {
+    id: "temple-three-pillars",
+    roaster: "Temple Coffee Roasters",
+    name: "Three Pillars Blend",
+    roastLevel: "medium",
+    notes: "Dark chocolate, caramel, citrus"
+  },
+  {
+    id: "temple-caldera-dark",
+    roaster: "Temple Coffee Roasters",
+    name: "Caldera Dark Blend",
+    roastLevel: "dark",
+    notes: "Baker's chocolate, nutmeg, brown sugar"
+  },
+
+  // --- Madcap Coffee (Grand Rapids, MI) ---
+  {
+    id: "madcap-bolt",
+    roaster: "Madcap Coffee",
+    name: "Bolt",
+    roastLevel: "medium",
+    notes: "Chocolate, caramelized sugar, red fruit"
+  },
+  {
+    id: "madcap-eureka",
+    roaster: "Madcap Coffee",
+    name: "Eureka",
+    roastLevel: "medium",
+    notes: "Chocolate, red fruit, candied orange"
+  },
+  {
+    id: "madcap-day-dream",
+    roaster: "Madcap Coffee",
+    name: "Day Dream",
+    roastLevel: "light",
+    notes: "Peach, white grape, plum, floral"
+  },
 ];
 
 /**
