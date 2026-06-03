@@ -8,7 +8,8 @@ var currentSort = "newest";
 var METHOD_LABELS = {
   espresso: "Espresso",
   v60: "V60",
-  chemex: "Chemex"
+  chemex: "Chemex",
+  frenchPress: "French Press"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
