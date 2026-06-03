@@ -2,6 +2,10 @@
 .claude/
 CLAUDE.md
 
+# Internal docs — keep local, not in the public repo
+docs/
+store-listing/
+
 # npm
 node_modules/
 
