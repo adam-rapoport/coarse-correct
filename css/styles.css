@@ -540,10 +540,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #submit-btn {
   width: 100%;
   padding: 0.9rem;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  font-family: var(--font-mono);
-  letter-spacing: 0.14em;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-ink);
   background: var(--accent);
@@ -795,10 +795,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .save-brew-btn {
   width: 100%;
   padding: 0.8rem;
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  font-family: var(--font-mono);
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--ok-ink);
   background: var(--ok);
@@ -933,10 +933,10 @@ footer p { font-size: 0.8rem; color: var(--faint); font-style: italic; line-heig
   width: 100%;
   margin-top: 1.5rem;
   padding: 0.7rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
   font-weight: 700;
   color: var(--danger);
   background: var(--danger-bg);
