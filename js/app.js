@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initBrewMethodToggle();
   initTempUnitToggle();
   initBrewLogForm();
+  updateDoseInput(getSelectedMethod()); // build the dose control for the default method
 
   document.getElementById("grind-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -104,24 +105,23 @@ function updateDoseInput(method) {
 
     wrapper.appendChild(select);
   } else {
-    // Show the grams number input
+    // Show a grams dropdown (iOS/iPadOS hide the +/- steppers on number inputs,
+    // so a dropdown makes it clear the dose is selectable). 10g–22g in 0.5g steps.
     label.textContent = "Dose (grams)";
-    var input = document.createElement("input");
-    input.type = "number";
-    input.id = "dose";
-    input.value = config.doseDefault;
-    input.min = "10";
-    input.max = "30";
-    input.step = "0.5";
-    input.required = true;
+    var select = document.createElement("select");
+    select.id = "dose";
+    select.required = true;
 
-    var unit = document.createElement("span");
-    unit.className = "dose-unit";
-    unit.id = "dose-unit";
-    unit.textContent = "g";
+    for (var g = 10; g <= 22; g += 0.5) {
+      var grams = Math.round(g * 10) / 10; // avoid floating-point drift (e.g. 10.5, 11)
+      var option = document.createElement("option");
+      option.value = grams;
+      option.textContent = grams + " g";
+      if (grams === config.doseDefault) option.selected = true;
+      select.appendChild(option);
+    }
 
-    wrapper.appendChild(input);
-    wrapper.appendChild(unit);
+    wrapper.appendChild(select);
   }
 }
 
