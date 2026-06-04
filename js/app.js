@@ -252,7 +252,7 @@ function initBeanSearch() {
   var searchInput = document.getElementById("bean-search");
   var resultsContainer = document.getElementById("bean-results");
   var searchSection = document.getElementById("bean-search-section");
-  var modeBtns = document.querySelectorAll(".mode-btn");
+  var modeBtns = document.querySelectorAll(".bean-mode-toggle .mode-btn");
 
   // Toggle between search and manual mode
   modeBtns.forEach(function (btn) {

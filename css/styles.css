@@ -172,9 +172,9 @@ header h1 {
 }
 
 .subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--label);
@@ -207,11 +207,11 @@ header h1 {
 
 .nav-link {
   flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
   padding: 0.55rem 0.85rem;
@@ -238,9 +238,9 @@ header h1 {
 
 .form-group > label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--label);
@@ -287,8 +287,13 @@ input[type="date"] { color-scheme: light; }
 [data-theme="dark"] input[type="date"] { color-scheme: dark; }
 
 /* Date field: show a calendar icon as a "this is tappable" cue, and stop iOS
-   from forcing the control wider than its card (min-width). */
+   Safari from rendering the control wider than its card. The key is
+   -webkit-appearance: none — without it iOS gives date inputs an intrinsic
+   width that ignores width:100% and overflows the container. */
 input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
   min-width: 0;
   text-align: left;
   background-image: var(--cal-icon);
@@ -296,6 +301,9 @@ input[type="date"] {
   background-position: right 0.8rem center;
   padding-right: 2.4rem;
 }
+/* iOS lays the value out inside this pseudo-element — pin it left so the date
+   doesn't sit oddly once native appearance is removed. */
+input[type="date"]::-webkit-date-and-time-value { text-align: left; margin: 0; }
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;            /* hide the browser's default icon; our --cal-icon shows instead */
   cursor: pointer;       /* clicking where our icon sits still opens the picker */
@@ -379,9 +387,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #roast-radio-group.dimmed { opacity: 0.45; pointer-events: none; }
 
 .roast-auto-label {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--accent-text);
   margin-top: 0.5rem;
@@ -438,12 +447,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .bean-result-item.highlighted { background: var(--surface-sunk); }
 
 .bean-result-roaster {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--label);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 .bean-result-name { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
 .bean-result-meta { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.15rem; }
@@ -566,11 +575,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .result { margin-top: 2rem; animation: ccFadeUp 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
 
 .result h2 {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   color: var(--label);
   margin-bottom: 0.75rem;
 }
@@ -647,11 +656,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: ccFadeUp 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both 0.14s;
 }
 .result-details h3, .result-tips h3 {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--label);
   margin-bottom: 0.7rem;
 }
@@ -684,11 +693,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: ccFadeUp 0.45s cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
 .quick-adjust-prompt {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   color: var(--label);
   margin-bottom: 0.85rem;
 }
@@ -761,10 +770,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .log-field { margin-bottom: 1.1rem; }
 .log-field label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.07em;
   font-weight: 700;
   color: var(--label);
   margin-bottom: 0.45rem;
@@ -850,9 +859,9 @@ footer p { font-size: 0.8rem; color: var(--faint); font-style: italic; line-heig
 .journal-filters { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .filter-btn {
   padding: 0.4rem 0.75rem;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   letter-spacing: 0.04em;
   border: 1.5px solid var(--line-strong);
   border-radius: var(--r-pill);
@@ -883,7 +892,7 @@ footer p { font-size: 0.8rem; color: var(--faint); font-style: italic; line-heig
   animation: ccFadeUp 0.4s ease both;
 }
 .journal-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; gap: 0.5rem; }
-.journal-date { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--label); letter-spacing: 0.02em; white-space: nowrap; }
+.journal-date { font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; color: var(--label); letter-spacing: 0.02em; white-space: nowrap; }
 .journal-method {
   font-family: var(--font-mono);
   font-size: 0.62rem;
